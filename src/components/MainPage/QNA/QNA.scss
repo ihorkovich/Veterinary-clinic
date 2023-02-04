@@ -1,0 +1,11 @@
+.answer {
+  overflow: hidden;
+  height: 0;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.4s;
+}
+.answer.show {
+  height: auto;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.4s;
+}

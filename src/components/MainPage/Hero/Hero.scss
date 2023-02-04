@@ -1,0 +1,28 @@
+.hero-image {
+  width: 70%;
+  border-radius: 35% 65% 39% 61% / 42% 37% 63% 58%;
+  filter: contrast(90%) brightness(101%) saturate(132%) sepia(20%)
+    grayscale(16%) hue-rotate(8deg);
+}
+
+.back-green::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 90%;
+  background-color: #f7ffec;
+  z-index: -10;
+}
+
+.hero-button::before {
+  content: "";
+  position: absolute;
+  margin-top: -7px;
+  margin-left: -9.5px;
+  width: inherit;
+  height: inherit;
+  background-color: #51c815;
+  z-index: -1;
+}
