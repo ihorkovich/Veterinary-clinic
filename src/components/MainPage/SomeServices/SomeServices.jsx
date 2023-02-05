@@ -45,7 +45,7 @@ const SomeServices = () => {
         ))}
       </div>
       <div className="flex justify-center z-10">
-        <button className="services-button bg-blackGreen text-white w-[100px] h-[45px]">
+        <button className="services-button text-bgGreen bg-[#b5cbb7] border border-bgGreen w-[100px] h-[45px]">
           Learn more
         </button>
       </div>

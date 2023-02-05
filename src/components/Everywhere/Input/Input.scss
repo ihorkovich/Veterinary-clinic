@@ -1,0 +1,61 @@
+.form-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+label {
+  color: #74bb8f;
+  font-weight: normal;
+  opacity: 0.85;
+  order: 1;
+  padding-left: 4px;
+  pointer-events: none;
+  text-shadow: none;
+  text-transform: capitalize;
+  transform-origin: left top;
+  transform: scale(1) translate3d(0, 4px, 0);
+  transition: 0.2s ease all;
+}
+
+input {
+  background-color: transparent;
+  width: 100%;
+  display: flex;
+  font-size: 100%;
+  line-height: 25px;
+  text-shadow: none;
+  border: 0;
+  border-bottom: 1.5px solid #74bb8f;
+  flex: 1 1 auto;
+  order: 2;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:focus + label {
+    color: #499265;
+    opacity: 1;
+    transform: scale(0.8) translate3d(0, 0px, 0);
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #499265;
+  }
+}
+
+.input-length-more-1 + label {
+  color: #499265;
+  opacity: 1;
+  transform: scale(0.8) translate3d(0, 0px, 0);
+
+  &:not(:focus) {
+    color: #499265;
+  }
+}

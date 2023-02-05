@@ -14,7 +14,7 @@ const NavBar = () => {
 
   return (
     <div className="container px-4 flex justify-between items-center h-[70px]">
-      <div className="w-10 h-10 bg-green-500">logo</div>
+      <div className="w-10 h-10 flex justify-center align-center">logo</div>
       <div className="toggle-menu w-10 h-10 z-50" onClick={menuHandler}>
         <span className={`bar-top ${menuBars}`}></span>
         <span className={`bar-middle ${menuBars}`}></span>
