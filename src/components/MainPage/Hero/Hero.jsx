@@ -1,17 +1,28 @@
 import "./Hero.scss";
 const Hero = () => {
   return (
-    <div className="container px-4 back-green flex flex-col items-center pb-20">
-      <img src="src/assets/hero/dog.png" className="hero-image mt-12" />
-      <div className="mt-10">
-        <h1 className="font-bold text-4xl text-[#74bb8f]">Quality Vet Care</h1>
-        <h1 className="font-bold text-4xl text-blackGreen">for Your Pets</h1>
-        <h2 className="mt-4 w-10/12">
-          Personalized and Expert Care for Your Furry Friends - Book Your
-          Appointment Now!
+    <div className="container w-full px-4 overflow-hidden flex flex-col justify-end items-center h-[100vh] relative pb-16">
+      <div className="absolute top-0 left-0 w-screen overflow-hidden z-0">
+        <img
+          src="src/assets/hero/bg-ong-cat-5.png"
+          alt=""
+          className="opacity-[0.35] w-full h-full"
+        />
+      </div>
+      <div className="z-10">
+        <h1 className="font-bold text-7xl text-[#74bb8f]">
+          Quality <br /> Vet <br /> Care
+        </h1>
+        <h2 className="mt-4 text-[#74bb8f] text-[13px]">
+          At Our Clinic, Your Furry Friend Receives the Best Possible Care. Our
+          Team of Skilled and Compassionate Veterinarians Utilizes the Latest
+          Techniques and Technology to Ensure Your Pet's Health and Happiness.
+          Whether Your Pet Needs a Routine Check-Up or Specialized Care, You Can
+          Trust Us to be Your Partner in Your Pet's Wellness Journey.
+          <br /> <br /> Book Your Appointment Now!
         </h2>
-        <div className="mt-6 flex justify-center">
-          <button className="hero-button bg-blackGreen text-white w-[100px] h-[45px]">
+        <div className="mt-8 flex justify-start z-10">
+          <button className=" hero-button bg-bgGreen border border-[#74bb8f] text-[#74bb8f] w-[100px] h-[45px]">
             Book now
           </button>
         </div>

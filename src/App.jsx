@@ -1,4 +1,4 @@
-import NavBar from "./components/MainPage/NavBar/NavBar";
+import NavBar from "./components/Everywhere/NavBar/NavBar";
 import Hero from "./components/MainPage/Hero/Hero";
 import Doctors from "./components/MainPage/Doctors/Doctors";
 import SomeServices from "./components/MainPage/SomeServices/SomeServices";
@@ -8,7 +8,7 @@ import Footer from "./components/MainPage/Footer/Footer";
 
 const App = () => {
   return (
-    <div>
+    <div className="bg-bgGreen">
       <NavBar />
       <Hero />
       <Doctors />

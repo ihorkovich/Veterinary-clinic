@@ -3,7 +3,7 @@ import Input from "../../Everywhere/Input/Input";
 
 const Footer = () => {
   return (
-    <div className="footer mt-14 bg-bgGreen pt-4">
+    <div className="footer bg-bgGreen pt-4">
       <div className="px-6">
         <h2 className="text-center font-bold text-[#74bb8f] text-[1.75rem] ">
           STILL HAVE QUESTIONS? THEN THERE IS AN ANSWER!
