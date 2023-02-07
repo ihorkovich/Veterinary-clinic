@@ -4,7 +4,7 @@ const Hero = () => {
     <div className="container w-full px-4 overflow-hidden flex flex-col justify-end items-center h-[100vh] relative pb-16">
       <div className="absolute top-0 left-0 w-screen overflow-hidden z-0">
         <img
-          src="src/assets/hero/bg-ong-cat-5.png"
+          src="src/assets/hero/hero-background.png"
           alt=""
           className="opacity-[0.35] w-full h-full"
         />

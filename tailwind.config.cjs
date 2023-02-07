@@ -9,6 +9,9 @@ module.exports = {
         detailsGreen: "#51C815",
         blackGreen: "#081800",
       },
+      screens: {
+        xsm: "425px",
+      },
     },
     container: {
       center: true,
