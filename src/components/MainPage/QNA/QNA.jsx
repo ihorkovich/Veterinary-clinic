@@ -11,7 +11,7 @@ const QNA = () => {
   };
 
   return (
-    <div className="container px-4 mt-14">
+    <div className="container px-4 pt-12 bg-bgGreen">
       <h2 className="px-4 text-3xl text-blackGreen font-bold text-center my-6">
         Pet Care FAQs
       </h2>

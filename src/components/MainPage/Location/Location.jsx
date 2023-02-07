@@ -1,6 +1,6 @@
 const Location = () => {
   return (
-    <div className="container px-4 mt-14">
+    <div className="container px-4 py-14 bg-bgGreen">
       <h2 className="bg-[#b5cbb7] text-bgGreen px-4 text-center py-6 text-3xl font-bold">
         Our Clinic Location
       </h2>

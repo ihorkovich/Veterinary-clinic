@@ -43,7 +43,7 @@ const Doctors = () => {
     },
   ];
   return (
-    <div className="container px-4 mt-14 overflow-hidden">
+    <div className="container px-4 pb-14 overflow-hidden bg-bgGreen z-20">
       <h2 className="text-center font-bold text-3xl text-blackGreen my-6 px-4">
         Expert Veterinary Care You Can Trust
       </h2>

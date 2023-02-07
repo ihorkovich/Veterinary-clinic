@@ -1,6 +1,10 @@
-.footer {
-  background-image: url("src/assets/footer/footer-cartoon.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.5;
+.footer-button::before {
+  content: "";
+  position: absolute;
+  margin-top: -6px;
+  margin-left: -26px;
+  width: inherit;
+  height: inherit;
+  background-color: #74bb8f;
+  z-index: -1;
 }

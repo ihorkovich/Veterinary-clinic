@@ -28,7 +28,7 @@ const SomeServices = () => {
     },
   ];
   return (
-    <div className="mt-14 flex flex-col bg-[#b5cbb7] items-center py-8">
+    <div className="flex flex-col bg-[#b5cbb7] items-center py-8">
       <h2 className="px-4 font-bold text-3xl text-bgGreen text-center mb-8">
         Expert Veterinary Services for Your Pet
       </h2>
@@ -45,7 +45,7 @@ const SomeServices = () => {
         ))}
       </div>
       <div className="flex justify-center z-10">
-        <button className="services-button bg-blackGreen text-white w-[100px] h-[45px]">
+        <button className="services-button text-bgGreen bg-[#b5cbb7] border border-bgGreen w-[100px] h-[45px]">
           Learn more
         </button>
       </div>
