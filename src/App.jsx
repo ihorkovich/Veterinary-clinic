@@ -4,7 +4,7 @@ import Doctors from "./components/MainPage/Doctors/Doctors";
 import SomeServices from "./components/MainPage/SomeServices/SomeServices";
 import QNA from "./components/MainPage/QNA/QNA";
 import Location from "./components/MainPage/Location/Location";
-import Footer from "./components/MainPage/Footer/Footer";
+import Footer from "./components/Everywhere/Footer/Footer";
 
 const App = () => {
   return (
