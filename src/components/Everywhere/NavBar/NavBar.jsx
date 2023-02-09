@@ -40,11 +40,11 @@ const NavBar = () => {
           className="w-10 h-10 lg:h-12 lg:w-[6.5rem] burger-menu hover:cursor-pointer lg:flex"
           onClick={openMenu}
         >
-          <div className="hidden lg:px-2 lg:bg-bgGreen lg:border lg:border-[#74bb8f] lg:border-r-0 text-[#74bb8f] lg:text-lg lg:flex lg:justify-center lg:items-center">
+          <div className="hidden lg:px-2 lg:bg-bgGreen lg:border lg:border-[#56776C] lg:border-r-0 text-[#56776C] lg:text-lg lg:flex lg:justify-center lg:items-center">
             Menu
           </div>
           <svg
-            className="border border-[#74bb8f] bg-bgGreen lg:border-l-0"
+            className="border border-[#56776C] bg-bgGreen lg:border-l-0"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             zoomAndPan="magnify"
@@ -64,7 +64,7 @@ const NavBar = () => {
             </defs>
             <g clipPath="url(#id1)">
               <path
-                fill="#74bb8f"
+                fill="#56776C"
                 d="M 3.398438 22.40625 L 26.601562 22.40625 L 26.601562 19.867188 L 3.398438 19.867188 Z M 3.398438 16.054688 L 26.601562 16.054688 L 26.601562 13.515625 L 3.398438 13.515625 Z M 3.398438 7.164062 L 3.398438 9.703125 L 26.601562 9.703125 L 26.601562 7.164062 Z M 3.398438 7.164062 "
                 fillOpacity="1"
                 id="mainIconPathAttribute"
@@ -73,9 +73,9 @@ const NavBar = () => {
           </svg>
         </div>
         <div
-          className={`z-20 bg-bgGreen fixed ${menuVisibility} h-auto w-[95%] xsm:w-[400px] md:w-[600px] lg:h-auto lg:w-[30%] lg:min-w-[500px] lg:min-h-[55%] duration-[0.6s] border-b-2 border-b-[#74bb8f] border-l-2 border-l-[#74bb8f] `}
+          className={`z-20 bg-bgGreen fixed ${menuVisibility} h-auto w-[95%] xsm:w-[400px] md:w-[600px] lg:h-auto lg:w-[30%] lg:min-w-[500px] lg:min-h-[55%] duration-[0.6s] border-b-2 border-b-[#56776C] border-l-2 border-l-[#56776C] `}
         >
-          <div className="w-auto h-[70px] lg:h-[100px] px-4 lg:px-12 flex justify-end items-center border-b-2 border-[#74bb8f]">
+          <div className="w-auto h-[70px] lg:h-[100px] px-4 lg:px-12 flex justify-end items-center border-b-2 border-[#56776C]">
             <div
               className={`w-10 h-10 lg:w-12 lg:h-12 ${closeButtonOpacity} menu-burger hover:cursor-pointer duration-200 lg:w-[6.5rem] lg:flex`}
               onClick={closeMenu}
@@ -88,17 +88,17 @@ const NavBar = () => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 id="IconChangeColor"
-                className="border border-[#74bb8f] bg-bgGreen lg:w-12 lg:h-12 lg:border-l-0"
+                className="border border-[#56776C] bg-bgGreen lg:w-12 lg:h-12 lg:border-l-0"
               >
                 <path
                   d="M17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41L17.59 5Z"
-                  fill="#74bb8f"
+                  fill="#56776C"
                   id="mainIconPathAttribute"
                 ></path>
               </svg>
             </div>
           </div>
-          <ul className="font-bold text-[42px] lg:text-[50px] flex flex-col items-start text-[#74bb8f] leading-[50px] scale-y-110 my-14 ml-4 md:ml-7 md:my-16 md:leading-[55px]">
+          <ul className="font-bold text-[42px] lg:text-[50px] flex flex-col items-start text-[#56776C] leading-[50px] scale-y-110 my-14 ml-4 md:ml-7 md:my-16 md:leading-[55px]">
             <li className="hover:text-[#84d4a3] duration-150">
               <a href="">
                 <span>· </span>HOME
