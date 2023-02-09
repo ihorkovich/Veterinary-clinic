@@ -10,10 +10,10 @@ const Hero = () => {
         />
       </div>
       <div className="z-10">
-        <h1 className="font-bold text-7xl text-[#74bb8f]">
+        <h1 className="font-bold text-7xl text-[#5B8A72]">
           Quality <br /> Vet <br /> Care
         </h1>
-        <h2 className="mt-4 text-[#74bb8f] text-[13px]">
+        <h2 className="mt-4 text-[#5B8A72] text-[13px]">
           At Our Clinic, Your Furry Friend Receives the Best Possible Care. Our
           Team of Skilled and Compassionate Veterinarians Utilizes the Latest
           Techniques and Technology to Ensure Your Pet's Health and Happiness.
@@ -22,7 +22,7 @@ const Hero = () => {
           <br /> <br /> Book Your Appointment Now!
         </h2>
         <div className="mt-8 flex justify-start z-10">
-          <button className=" hero-button bg-bgGreen border border-[#74bb8f] text-[#74bb8f] w-[100px] h-[45px]">
+          <button className=" hero-button bg-bgGreen border border-[#67ad82] text-[#67ad82] w-[100px] h-[45px]">
             Book now
           </button>
         </div>
