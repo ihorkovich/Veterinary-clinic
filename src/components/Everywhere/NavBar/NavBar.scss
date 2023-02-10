@@ -10,3 +10,10 @@
   z-index: -1;
   transition-duration: 0.2s;
 }
+
+.active {
+  color: #84d4a3;
+}
+.active:before {
+  content: "· ";
+}
