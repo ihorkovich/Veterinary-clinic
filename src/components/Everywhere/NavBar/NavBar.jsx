@@ -1,3 +1,4 @@
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { useState } from "react";
 import "./NavBar.scss";
 
@@ -12,7 +13,6 @@ const NavBar = (props) => {
     setMenuVisibility("top-0 right-0 cubic-bezier(.19,.75,.85,.51)");
     setbgMenuOpacity("h-[100%]");
     setTimeout(() => setCloseButtonOpacity("opacity-100"), 600);
-    document.body.style.overflow = "hidden";
   };
 
   const closeMenu = () => {
@@ -23,7 +23,6 @@ const NavBar = (props) => {
       );
       setbgMenuOpacity("h-[0%]");
     }, 200);
-    document.body.style.overflow = "visible";
   };
 
   return (
@@ -32,15 +31,19 @@ const NavBar = (props) => {
     >
       <div className="px-4 lg:px-12 flex justify-between items-center h-full">
         <div className="w-auto h-11 flex justify-center align-center z-20">
-          <img
-            src="src/assets/logo/logo.png"
-            alt="clerks"
-            className="w-auto h-auto"
-          />
+          <NavLink to="/">
+            <img
+              src="src/assets/logo/logo.png"
+              alt="clerks"
+              className="w-auto h-full"
+            />
+          </NavLink>
         </div>
         <div className="flex gap-8">
           <div className="w-10 h-10 lg:w-12 lg:h-12 border border-[#74bb8f] flex justify-center items-center text-[#74bb8f]">
-            <button className="">Login</button>
+            <button className="">
+              <Link to="/login">Login</Link>
+            </button>
           </div>
           <div
             className="w-10 h-10 lg:h-12 lg:w-[6.5rem] burger-menu hover:cursor-pointer lg:flex"
@@ -107,46 +110,29 @@ const NavBar = (props) => {
           </div>
           <ul className="font-bold text-[42px] lg:text-[50px] flex flex-col items-start text-[#74bb8f] leading-[50px] scale-y-110 my-14 ml-4 md:ml-7 md:my-16 md:leading-[55px]">
             <li className="hover:text-[#84d4a3] duration-150">
-              <a href="">
-                <span>· </span>HOME
-              </a>
+              <NavLink to="/">HOME</NavLink>
             </li>
             <li className="hover:text-[#84d4a3] duration-150">
-              <a href="">
-                {/* <span>· </span> */}
+              <NavLink to="/services" className="service">
                 SERVICES
-              </a>
+              </NavLink>
             </li>
             <li className="hover:text-[#84d4a3] duration-150">
-              <a href="">
-                {/* <span>· </span> */}
-                LOCATION
-              </a>
+              <NavLink to="/doctors">DOCTORS</NavLink>
             </li>
             <li className="hover:text-[#84d4a3] duration-150">
-              <a href="">
-                {/* <span>· </span> */}
-                HELP CENTER
-              </a>
+              <NavLink to="/about">ABOUT US</NavLink>
             </li>
             <li className="hover:text-[#84d4a3] duration-150">
-              <a href="">
-                {/* <span>· </span> */}
-                ABOUT US
-              </a>
-            </li>
-            <li className="hover:text-[#84d4a3] duration-150">
-              <a href="">
-                {/* <span>· </span> */}
-                CONTACTS
-              </a>
+              <NavLink to="/contacts">CONTACTS</NavLink>
             </li>
           </ul>
         </div>
       </div>
       <div
-        className={`fixed bottom-0 right-0 ${bgMenuOpacity} w-[100vw] backdrop-blur-sm duration-300 z-[10]`}
+        className={`fixed bottom-0 right-0 ${bgMenuOpacity} w-[100vw] backdrop-blur-sm duration-300 z-[18]`}
       ></div>
+      <Outlet />
     </div>
   );
 };
