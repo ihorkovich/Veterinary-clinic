@@ -31,13 +31,13 @@ const NavBar = (props) => {
     >
       <div className="px-4 lg:px-12 flex justify-between items-center h-full">
         <div className="w-auto h-11 flex justify-center align-center z-20">
-          <NavLink to="/">
+          <Link to="/">
             <img
               src="src/assets/logo/logo.png"
               alt="clerks"
               className="w-auto h-full"
             />
-          </NavLink>
+          </Link>
         </div>
         <div className="flex gap-8">
           <div className="w-10 h-10 lg:w-12 lg:h-12 border border-[#74bb8f] flex justify-center items-center text-[#74bb8f]">

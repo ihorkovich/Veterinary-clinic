@@ -1,6 +1,6 @@
-import NavBar from "../Everywhere/NavBar/NavBar";
+import NavBar from "../../Everywhere/NavBar/NavBar";
 
-const AllServices = () => {
+const Services = () => {
   return (
     <div>
       <NavBar />
@@ -76,4 +76,4 @@ const AllServices = () => {
   );
 };
 
-export default AllServices;
+export default Services;

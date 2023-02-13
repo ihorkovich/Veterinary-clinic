@@ -1,5 +1,5 @@
-import NavBar from "../Everywhere/NavBar/NavBar";
-import Input from "../Everywhere/Input/Input";
+import NavBar from "../../Everywhere/NavBar/NavBar";
+import Input from "../../Input/Input";
 const RequestAnAppointment = () => {
   return (
     <div>
