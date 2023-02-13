@@ -1,8 +1,7 @@
-import Footer from "../Everywhere/Footer/Footer";
 import { useState } from "react";
 
-import NavBar from "../Everywhere/NavBar/NavBar";
-import Input from "../Everywhere/Input/Input";
+import NavBar from "../../Everywhere/NavBar/NavBar";
+import Input from "../../Input/Input";
 
 const Login = () => {
   const [signInVisibility, setSignInVisibility] = useState("hidden");

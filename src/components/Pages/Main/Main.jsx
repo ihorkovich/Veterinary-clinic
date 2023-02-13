@@ -1,10 +1,10 @@
-import NavBar from "../Everywhere/NavBar/NavBar";
+import NavBar from "../../Everywhere/NavBar/NavBar";
 import Hero from "./Hero/Hero";
 import Doctors from "./Doctors/Doctors";
 import SomeServices from "./SomeServices/SomeServices";
 import QNA from "./QNA/QNA";
 import Location from "./Location/Location";
-import Footer from "../Everywhere/Footer/Footer";
+import Footer from "../../Everywhere/Footer/Footer";
 
 const Main = () => {
   return (

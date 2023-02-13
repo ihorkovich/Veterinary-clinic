@@ -1,6 +1,9 @@
-import NavBar from "../Everywhere/NavBar/NavBar";
+import { useParams } from "react-router";
+import NavBar from "../../Everywhere/NavBar/NavBar";
 
 const SpecificDoctor = () => {
+  const { id } = useParams();
+
   return (
     <div className="min-h-screen">
       <NavBar />
