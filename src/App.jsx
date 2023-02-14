@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Main from "./components/Pages/Main/Main";
 import Login from "./components/Pages/Login/Login";
 import Services from "./components/Pages/Services/Services";
+import SpecificService from "./components/Pages/SpecificService/SpecificService";
 import Doctors from "./components/Pages/Doctors/Doctors";
 import SpecificDoctor from "./components/Pages/SpecificDoctor/SpecificDoctor";
 import AboutUs from "./components/Pages/AboutUs/AboutUs";
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/services/:id" element={<SpecificService />} />
         <Route path="/doctors" element={<Doctors />} />
         <Route path="/doctors/:id" element={<SpecificDoctor />} />
         <Route path="/about" element={<AboutUs />} />

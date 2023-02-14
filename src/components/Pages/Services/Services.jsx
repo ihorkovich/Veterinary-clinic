@@ -1,4 +1,5 @@
 import NavBar from "../../Everywhere/NavBar/NavBar";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   return (
@@ -9,67 +10,81 @@ const Services = () => {
       </h1>
       <div className="container px-4 grid grid-cols-1 grid-rows-auto">
         <div>
-          <img className="w-[200px] h-[200px] bg-green-300" />
-          <p>Microchipping</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-            numquam temporibus rem inventore sed. Ut saepe voluptatibus neque
-            incidunt accusamus.
-          </p>
+          <Link to={"microchipping"}>
+            <img className="w-[200px] h-[200px] bg-green-300" />
+            <p>Microchipping</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+              numquam temporibus rem inventore sed. Ut saepe voluptatibus neque
+              incidunt accusamus.
+            </p>
+          </Link>
         </div>
         <div>
-          <img className="w-[200px] h-[200px] bg-green-300" />
-          <p>DENTISTRY</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-            numquam temporibus rem inventore sed. Ut saepe voluptatibus neque
-            incidunt accusamus.
-          </p>
+          <Link to="dental care">
+            <img className="w-[200px] h-[200px] bg-green-300" />
+            <p>DENTISTRY</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+              numquam temporibus rem inventore sed. Ut saepe voluptatibus neque
+              incidunt accusamus.
+            </p>
+          </Link>
         </div>
         <div>
-          <img className="w-[200px] h-[200px] bg-green-300" />
-          <p>WELLNESS CARE</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-            numquam temporibus rem inventore sed. Ut saepe voluptatibus neque
-            incidunt accusamus.
-          </p>
+          <Link to="wellness exams">
+            <img className="w-[200px] h-[200px] bg-green-300" />
+            <p>WELLNESS EXAMS</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+              numquam temporibus rem inventore sed. Ut saepe voluptatibus neque
+              incidunt accusamus.
+            </p>
+          </Link>
         </div>
         <div>
-          <img className="w-[200px] h-[200px] bg-green-300" />
-          <p>DIAGNOSTICS</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-            numquam temporibus rem inventore sed. Ut saepe voluptatibus neque
-            incidunt accusamus.
-          </p>
+          <Link to="rehabilitation">
+            <img className="w-[200px] h-[200px] bg-green-300" />
+            <p>REHABILITATION</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+              numquam temporibus rem inventore sed. Ut saepe voluptatibus neque
+              incidunt accusamus.
+            </p>
+          </Link>
         </div>
         <div>
-          <img className="w-[200px] h-[200px] bg-green-300" />
-          <p>Surgery</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-            numquam temporibus rem inventore sed. Ut saepe voluptatibus neque
-            incidunt accusamus.
-          </p>
+          <Link to="surgery">
+            <img className="w-[200px] h-[200px] bg-green-300" />
+            <p>Surgery</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+              numquam temporibus rem inventore sed. Ut saepe voluptatibus neque
+              incidunt accusamus.
+            </p>
+          </Link>
         </div>
         <div>
-          <img className="w-[200px] h-[200px] bg-green-300" />
-          <p>VACCINATIONS</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-            numquam temporibus rem inventore sed. Ut saepe voluptatibus neque
-            incidunt accusamus.
-          </p>
+          <Link to="vaccinations">
+            <img className="w-[200px] h-[200px] bg-green-300" />
+            <p>VACCINATIONS</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+              numquam temporibus rem inventore sed. Ut saepe voluptatibus neque
+              incidunt accusamus.
+            </p>
+          </Link>
         </div>
         <div>
-          <img className="w-[200px] h-[200px] bg-green-300" />
-          <p>PUPPY & KITTEN CARE</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-            numquam temporibus rem inventore sed. Ut saepe voluptatibus neque
-            incidunt accusamus.
-          </p>
+          <Link to="dermatology">
+            <img className="w-[200px] h-[200px] bg-green-300" />
+            <p>DERMATOLOGY</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+              numquam temporibus rem inventore sed. Ut saepe voluptatibus neque
+              incidunt accusamus.
+            </p>
+          </Link>
         </div>
       </div>
     </div>
