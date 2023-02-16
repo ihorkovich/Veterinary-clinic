@@ -1,7 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 
 import Main from "./components/Pages/Main/Main";
-import Login from "./components/Pages/Login/Login";
+import Profile from "./components/Pages/Profile/Profile";
+import SignUp from "./components/Pages/SignUp/SignUp";
+import SignIn from "./components/Pages/SignIn/SignIn";
 import Services from "./components/Pages/Services/Services";
 import SpecificService from "./components/Pages/SpecificService/SpecificService";
 import Doctors from "./components/Pages/Doctors/Doctors";
@@ -15,7 +17,9 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
         <Route path="/services" element={<Services />} />
         <Route path="/services/:id" element={<SpecificService />} />
         <Route path="/doctors" element={<Doctors />} />
