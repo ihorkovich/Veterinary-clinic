@@ -1,5 +1,6 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import "./NavBar.scss";
 
 const NavBar = (props) => {
@@ -24,6 +25,7 @@ const NavBar = (props) => {
       setbgMenuOpacity("h-[0%]");
     }, 200);
   };
+  const userEmail = useSelector((state) => state.user.email);
 
   return (
     <div
@@ -42,7 +44,9 @@ const NavBar = (props) => {
         <div className="flex gap-8">
           <div className="w-10 h-10 lg:w-12 lg:h-12 border border-[#74bb8f] flex justify-center items-center text-[#74bb8f]">
             <button className="">
-              <Link to="/login">Login</Link>
+              <Link to={`${userEmail == null ? "/signup" : "/profile"}`}>
+                Login
+              </Link>
             </button>
           </div>
           <div
