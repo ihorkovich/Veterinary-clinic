@@ -1,5 +1,10 @@
 import "./Hero.scss";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 const Hero = () => {
+  const userName = useSelector((state) => state.user.name);
+
   return (
     <div className="container w-full px-4 overflow-hidden flex flex-col justify-end items-center h-[100vh] relative pb-16">
       <div className="absolute top-0 left-0 w-screen overflow-hidden z-0">
@@ -22,9 +27,11 @@ const Hero = () => {
           <br /> <br /> Book Your Appointment Now!
         </h2>
         <div className="mt-8 flex justify-start z-10">
-          <button className=" hero-button bg-bgGreen border border-[#74bb8f] text-[#74bb8f] w-[100px] h-[45px]">
-            Book now
-          </button>
+          <Link to={userName === null ? "/sign-up" : "/request-appointment"}>
+            <button className="hero-button bg-bgGreen border border-[#74bb8f] text-[#74bb8f] w-[100px] h-[45px]">
+              Book now
+            </button>
+          </Link>
         </div>
       </div>
     </div>

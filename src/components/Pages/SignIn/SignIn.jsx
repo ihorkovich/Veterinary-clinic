@@ -1,10 +1,10 @@
 import { useState } from "react";
-import NavBar from "../../Everywhere/NavBar/NavBar";
+import NavBar from "../../NavBar/NavBar";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { signInUser } from "../../redux/userSlice/userSlice";
+import { setUser } from "../../../redux/userSlice/userSlice";
 import { db } from "../../../firebase";
 import { getDoc, doc } from "firebase/firestore";
 
@@ -19,9 +19,9 @@ const SignIn = () => {
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
       const snap = await getDoc(doc(db, "users", `${user.user.uid}`));
-      const { name, surname } = snap.data();
+      const { name, surname, role } = snap.data();
       try {
-        dispatch(signInUser({ name, surname, email }));
+        dispatch(setUser({ name, surname, email, role }));
       } catch (error) {
         alert(error);
       }
@@ -32,8 +32,8 @@ const SignIn = () => {
   };
 
   return (
-    <div className="bg-bgGreen min-h-screen h-auto">
-      <NavBar display="block" />
+    <div className="bg-bgGreen min-h-screen h-auto pt-[200px]">
+      <NavBar />
       <div className="min-h-full bg-bgGreen border border-black flex justify-center items-center">
         <form>
           <input

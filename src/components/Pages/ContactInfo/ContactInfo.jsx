@@ -1,4 +1,4 @@
-import NavBar from "../../Everywhere/NavBar/NavBar";
+import NavBar from "../../NavBar/NavBar";
 
 const ContactInfo = () => {
   return (

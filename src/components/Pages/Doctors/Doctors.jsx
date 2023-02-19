@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import NavBar from "../../Everywhere/NavBar/NavBar";
+import NavBar from "../../NavBar/NavBar";
 
 const Doctors = () => {
   return (
-    <div>
+    <>
       <NavBar />
       <div className="container px-4">
         <div className="flex flex-col justify-start items-center gap-4">
@@ -89,7 +89,7 @@ const Doctors = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

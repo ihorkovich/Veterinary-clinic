@@ -1,5 +1,5 @@
 import "./Footer.scss";
-import Input from "../../Input/Input";
+import Input from "../Input/Input";
 
 const Footer = () => {
   return (

@@ -1,7 +1,20 @@
-import { useSelector } from "react-redux";
-import NavBar from "../../Everywhere/NavBar/NavBar";
+import { useDispatch, useSelector } from "react-redux";
+import NavBar from "../../NavBar/NavBar";
+import { auth } from "../../../firebase";
+import { resetState } from "../../../redux/userSlice/userSlice";
+import { useNavigate } from "react-router-dom";
+
 const Profile = () => {
   const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const userSignOut = () => {
+    auth.signOut();
+    dispatch(resetState());
+    navigate("/");
+  };
+
   return (
     <div>
       <NavBar />
@@ -11,6 +24,11 @@ const Profile = () => {
         <p>NAME: {user.name} </p>
         <p>SURNAME: {user.surname} </p>
         <p>EMAIL: {user.email}</p>
+      </div>
+      <div className="flex justify-center">
+        <button className="p-3 border-2" onClick={userSignOut}>
+          Sign Out
+        </button>
       </div>
     </div>
   );

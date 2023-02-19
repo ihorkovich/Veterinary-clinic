@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import NavBar from "../../Everywhere/NavBar/NavBar";
+import NavBar from "../../NavBar/NavBar";
 import { db } from "../../../firebase";
 import { getDoc, doc } from "@firebase/firestore";
 

@@ -1,9 +1,9 @@
-import NavBar from "../../Everywhere/NavBar/NavBar";
+import NavBar from "../../NavBar/NavBar";
 
 const AboutUs = () => {
   return (
-    <div className="">
-      <NavBar display="fixed" />
+    <>
+      <NavBar />
       <div className="container mx-auto px-4 pt-[75px] border-2 border-black">
         <div className="w-full">
           <img
@@ -39,7 +39,7 @@ const AboutUs = () => {
           </p>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
