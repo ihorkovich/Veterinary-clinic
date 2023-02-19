@@ -1,11 +1,11 @@
 import { useState } from "react";
-import NavBar from "../../Everywhere/NavBar/NavBar";
+import NavBar from "../../NavBar/NavBar";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { signUpUser } from "../../redux/userSlice/userSlice";
-import { collection, doc, setDoc } from "firebase/firestore";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../../redux/userSlice/userSlice";
+import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../../firebase";
 
 const SignUp = () => {
@@ -21,12 +21,16 @@ const SignUp = () => {
     e.preventDefault();
     try {
       const user = await createUserWithEmailAndPassword(auth, email, password);
+      const role = "user";
       await setDoc(doc(db, "users", `${user.user.uid}`), {
         name: name,
         surname: surname,
         email: email,
+        role: role,
+        banned: false,
+        id: user.user.uid,
       });
-      dispatch(signUpUser({ name, surname, email }));
+      dispatch(setUser({ name, surname, email, role }));
       try {
       } catch (error) {
         alert(error);
@@ -38,8 +42,8 @@ const SignUp = () => {
   };
 
   return (
-    <div className="bg-bgGreen min-h-screen h-auto">
-      <NavBar display="block" />
+    <div className="bg-bgGreen min-h-screen h-auto pt-[200px]">
+      <NavBar />
       <div className="min-h-full bg-bgGreen border border-black flex justify-center items-center">
         <form>
           <input

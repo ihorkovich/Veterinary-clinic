@@ -1,5 +1,5 @@
-import NavBar from "../../Everywhere/NavBar/NavBar";
 import { Link } from "react-router-dom";
+import NavBar from "../../NavBar/NavBar";
 
 const Services = () => {
   return (

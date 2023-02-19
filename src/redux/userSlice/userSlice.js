@@ -4,24 +4,24 @@ const initialState = {
   name: null,
   surname: null,
   email: null,
+  role: null,
 };
 
 const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    signUpUser: (state, action) => {
+    setUser: (state, action) => {
       state.name = action.payload.name;
       state.surname = action.payload.surname;
       state.email = action.payload.email;
+      state.role = action.payload.role;
     },
-    signInUser: (state, action) => {
-      state.name = action.payload.name;
-      state.surname = action.payload.surname;
-      state.email = action.payload.email;
+    resetState: () => {
+      return initialState;
     },
   },
 });
 
-export const { signUpUser, signInUser } = userSlice.actions;
+export const { setUser, resetState } = userSlice.actions;
 export default userSlice.reducer;

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import "./NavBar.scss";
 
-const NavBar = (props) => {
+const NavBar = () => {
   const [menuVisibility, setMenuVisibility] = useState(
     "top-[-100%] right-[-100%]"
   );
@@ -25,15 +25,14 @@ const NavBar = (props) => {
       setbgMenuOpacity("h-[0%]");
     }, 200);
   };
-  const userEmail = useSelector((state) => state.user.email);
+
+  const role = useSelector((state) => state.user.role);
 
   return (
-    <div
-      className={`w-screen ${props.display} top-0 left-0 h-[75px] lg:h-[100px] z-20`}
-    >
+    <div className={`w-screen fixed top-0 left-0 h-[75px] lg:h-[100px] z-20`}>
       <div className="px-4 lg:px-12 flex justify-between items-center h-full">
         <div className="w-auto h-11 flex justify-center align-center z-20">
-          <Link to="/">
+          <Link to={role === "user" ? "/" : ""}>
             <img
               src="src/assets/logo/logo.png"
               alt="clerks"
@@ -41,13 +40,12 @@ const NavBar = (props) => {
             />
           </Link>
         </div>
+        <div>{role}</div>
         <div className="flex gap-8">
           <div className="w-10 h-10 lg:w-12 lg:h-12 border border-[#74bb8f] flex justify-center items-center text-[#74bb8f]">
-            <button className="">
-              <Link to={`${userEmail == null ? "/signup" : "/profile"}`}>
-                Login
-              </Link>
-            </button>
+            <Link to={role != null ? "/profile" : "/signup"}>
+              <button className="">{role != null ? "Profile" : "Login"}</button>
+            </Link>
           </div>
           <div
             className="w-10 h-10 lg:h-12 lg:w-[6.5rem] burger-menu hover:cursor-pointer lg:flex"
@@ -112,25 +110,48 @@ const NavBar = (props) => {
               </svg>
             </div>
           </div>
-          <ul className="font-bold text-[42px] lg:text-[50px] flex flex-col items-start text-[#74bb8f] leading-[50px] scale-y-110 my-14 ml-4 md:ml-7 md:my-16 md:leading-[55px]">
-            <li className="hover:text-[#84d4a3] duration-150">
-              <NavLink to="/">HOME</NavLink>
-            </li>
-            <li className="hover:text-[#84d4a3] duration-150">
-              <NavLink to="/services" className="service">
-                SERVICES
-              </NavLink>
-            </li>
-            <li className="hover:text-[#84d4a3] duration-150">
-              <NavLink to="/doctors">DOCTORS</NavLink>
-            </li>
-            <li className="hover:text-[#84d4a3] duration-150">
-              <NavLink to="/about">ABOUT US</NavLink>
-            </li>
-            <li className="hover:text-[#84d4a3] duration-150">
-              <NavLink to="/contacts">CONTACTS</NavLink>
-            </li>
-          </ul>
+          {role === "admin" ? (
+            <ul className="font-bold text-[42px] lg:text-[50px] flex flex-col items-start text-[#74bb8f] leading-[50px] scale-y-110 my-14 ml-4 md:ml-7 md:my-16 md:leading-[55px]">
+              <li className="hover:text-[#84d4a3] duration-150">
+                <NavLink to="/user-list">USER LIST</NavLink>
+              </li>
+              <li className="hover:text-[#84d4a3] duration-150">
+                <NavLink to="/banned-users">BANNED USERS</NavLink>
+              </li>
+              <li className="hover:text-[#84d4a3] duration-150">
+                <NavLink to="/unverified-reviews">UNVERIFIED REVIEWS</NavLink>
+              </li>
+            </ul>
+          ) : role === "doctor" ? (
+            <ul className="font-bold text-[42px] lg:text-[50px] flex flex-col items-start text-[#74bb8f] leading-[50px] scale-y-110 my-14 ml-4 md:ml-7 md:my-16 md:leading-[55px]">
+              <li className="hover:text-[#84d4a3] duration-150">
+                <NavLink to="/appointments">APPOINTMENTS</NavLink>
+              </li>
+              <li className="hover:text-[#84d4a3] duration-150">
+                <NavLink to="/reviews">REVIEWS (50/50)</NavLink>
+              </li>
+            </ul>
+          ) : (
+            <ul className="font-bold text-[42px] lg:text-[50px] flex flex-col items-start text-[#74bb8f] leading-[50px] scale-y-110 my-14 ml-4 md:ml-7 md:my-16 md:leading-[55px]">
+              <li className="hover:text-[#84d4a3] duration-150">
+                <NavLink to="/">HOME</NavLink>
+              </li>
+              <li className="hover:text-[#84d4a3] duration-150">
+                <NavLink to="/services" className="service">
+                  SERVICES
+                </NavLink>
+              </li>
+              <li className="hover:text-[#84d4a3] duration-150">
+                <NavLink to="/doctors">DOCTORS</NavLink>
+              </li>
+              <li className="hover:text-[#84d4a3] duration-150">
+                <NavLink to="/about">ABOUT US</NavLink>
+              </li>
+              <li className="hover:text-[#84d4a3] duration-150">
+                <NavLink to="/contacts">CONTACTS</NavLink>
+              </li>
+            </ul>
+          )}
         </div>
       </div>
       <div
