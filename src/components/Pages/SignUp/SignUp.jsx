@@ -1,40 +1,51 @@
 import { useState } from "react";
-import NavBar from "../../NavBar/NavBar";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../../redux/userSlice/userSlice";
-import { doc, setDoc } from "firebase/firestore";
-import { db } from "../../../firebase";
+import NavBar from "../../NavBar/NavBar";
+import { addDocumentToCollection } from "../../../firebaseQueries";
 
 const SignUp = () => {
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [repeatPassword, setRepeatPassword] = useState("");
+  const [signUpData, setSignUpData] = useState({
+    name: "",
+    surname: "",
+    email: "",
+    password: "",
+    repeatPassword: "",
+  });
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const handleInputChange = (e) => {
+    setSignUpData((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
   const signUp = async (e) => {
     e.preventDefault();
+    const { name, surname, email, password } = signUpData;
     try {
-      const user = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const role = "user";
-      await setDoc(doc(db, "users", `${user.user.uid}`), {
-        name: name,
-        surname: surname,
-        email: email,
-        role: role,
+      const userData = {
+        name,
+        surname,
+        email,
+        role,
         banned: false,
-        id: user.user.uid,
-      });
-      dispatch(setUser({ name, surname, email, role }));
-      try {
-      } catch (error) {
-        alert(error);
-      }
+        id: userCredential.user.uid,
+      };
+      await addDocumentToCollection("users", userCredential.user.uid, userData);
+      dispatch(setUser(userData));
       navigate("/profile");
     } catch (error) {
       alert(error);
@@ -47,29 +58,40 @@ const SignUp = () => {
       <div className="min-h-full bg-bgGreen border border-black flex justify-center items-center">
         <form>
           <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            value={signUpData.name}
+            onChange={handleInputChange}
+          />
+          <input
+            type="text"
+            name="surname"
+            placeholder="Surname"
+            value={signUpData.surname}
+            onChange={handleInputChange}
+          />
+          <input
             type="email"
+            name="email"
             placeholder="Email"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <input
-            type="text"
-            placeholder="name"
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="surname"
-            onChange={(e) => setSurname(e.target.value)}
+            value={signUpData.email}
+            onChange={handleInputChange}
           />
           <input
             type="password"
-            placeholder="password"
-            required
-            onChange={(e) => setPassword(e.target.value)}
+            name="password"
+            placeholder="Password"
+            value={signUpData.password}
+            onChange={handleInputChange}
           />
-          <input type="password" placeholder="repat password" required />
+          <input
+            type="password"
+            name="repeatPassword"
+            placeholder="Repeat Password"
+            value={signUpData.repeatPassword}
+            onChange={handleInputChange}
+          />
 
           <button type="submit" className="border-2" onClick={signUp}>
             Sign Up
@@ -86,4 +108,5 @@ const SignUp = () => {
     </div>
   );
 };
+
 export default SignUp;

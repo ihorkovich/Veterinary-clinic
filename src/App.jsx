@@ -12,13 +12,13 @@ import SpecificDoctor from "./components/Pages/SpecificDoctor/SpecificDoctor";
 import AboutUs from "./components/Pages/AboutUs/AboutUs";
 import ContactInfo from "./components/Pages/ContactInfo/ContactInfo";
 import Error from "./components/Pages/Error/Error";
-
-import UserList from "./components/UserList/UserList";
-import BannedUsers from "./components/BannedUsers/BannedUsers";
-import UnverifiedReviews from "./components/UnverifiedReviews/UnverifiedReviews";
-
-import Appointments from "./components/Appointments/Appointments";
-import Reviews from "./components/Reviews/Reviews";
+import UserList from "./components/Pages/UserList/UserList";
+import BannedUsers from "./components/Pages/BannedUsers/BannedUsers";
+import PendingReviews from "./components/Pages/PendingReviews/PendingReviews";
+import Appointments from "./components/Pages/Appointments/Appointments";
+import SpecificAppointment from "./components/Pages/SpecificAppointment/SpecificAppointment";
+import Reviews from "./components/Pages/Reviews/Reviews";
+import { APrivateRoutes, DPrivateRoutes } from "./privateRoutes";
 
 const App = () => {
   return (
@@ -35,14 +35,17 @@ const App = () => {
         <Route path="/doctors/:id" element={<SpecificDoctor />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contacts" element={<ContactInfo />} />
+        <Route element={<APrivateRoutes />}>
+          <Route path="/user-list" element={<UserList />} />
+          <Route path="/banned-users" element={<BannedUsers />} />
+          <Route path="/pending-reviews" element={<PendingReviews />} />
+        </Route>
+        <Route element={<DPrivateRoutes />}>
+          <Route path="/appointments" element={<Appointments />} />
+          <Route path="/appointments/:id" element={<SpecificAppointment />} />
+          <Route path="/reviews" element={<Reviews />} />
+        </Route>
         <Route path="*" element={<Error />} />
-
-        <Route path="/user-list" element={<UserList />} />
-        <Route path="/banned-users" element={<BannedUsers />} />
-        <Route path="/unverified-reviews" element={<UnverifiedReviews />} />
-
-        <Route path="/appointments" element={<Appointments />} />
-        <Route path="/reviews" element={<Reviews />} />
       </Routes>
     </>
   );

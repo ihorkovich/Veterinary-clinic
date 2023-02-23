@@ -1,30 +1,27 @@
-import NavBar from "../NavBar/NavBar";
-import { db } from "../../firebase";
-import { collection, getDocs, updateDoc, doc } from "@firebase/firestore";
+import NavBar from "../../NavBar/NavBar";
 import { useEffect, useState } from "react";
+import {
+  getAllDocumentsFromCollection,
+  updateSpecificDocumentInCollection,
+} from "../../../firebaseQueries";
 
 const UserList = () => {
   const [allUsers, setAllUsers] = useState([]);
 
-  const getAllUsers = async () => {
-    try {
-      const colRef = collection(db, "users");
-      const docsSnap = await getDocs(colRef);
-      docsSnap.forEach((doc) => {
-        setAllUsers((prev) => [...prev, doc.data()]);
-      });
-    } catch (error) {
-      alert(error);
-    }
-  };
-
   useEffect(() => {
-    getAllUsers();
+    (async () => {
+      try {
+        const users = await getAllDocumentsFromCollection("users");
+        setAllUsers(users);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
   }, []);
 
   const banUser = async (e) => {
     e.preventDefault();
-    await updateDoc(doc(db, "users", e.target.dataset.userid), {
+    await updateSpecificDocumentInCollection("users", e.target.dataset.userid, {
       banned: true,
     });
     e.target.closest(".user").classList.add("hidden");

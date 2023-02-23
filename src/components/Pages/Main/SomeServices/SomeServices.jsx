@@ -10,11 +10,8 @@ const SomeServices = () => {
       </h2>
       <div className="w-[90%] grid grid-cols-2 gap-4 p-4">
         {services.map((service) => (
-          <Link to={`services/${service.name.toLowerCase()}`}>
-            <div
-              key={service.id}
-              className="aspect-square border border-bgGreen p-1 text-sm"
-            >
+          <Link to={`services/${service.name.toLowerCase()}`} key={service.id}>
+            <div className="aspect-square border border-bgGreen p-1 text-sm">
               <img src="" alt="" />
               <p className="text-bgGreen">{service.name}</p>
               <p className="text-bgGreen">{service.description}</p>

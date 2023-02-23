@@ -29,7 +29,7 @@ const NavBar = () => {
   const role = useSelector((state) => state.user.role);
 
   return (
-    <div className={`w-screen fixed top-0 left-0 h-[75px] lg:h-[100px] z-20`}>
+    <div className="w-screen fixed top-0 left-0 h-[75px] lg:h-[100px] z-20">
       <div className="px-4 lg:px-12 flex justify-between items-center h-full">
         <div className="w-auto h-11 flex justify-center align-center z-20">
           <Link to={role === "user" ? "/" : ""}>
@@ -85,7 +85,7 @@ const NavBar = () => {
           </div>
         </div>
         <div
-          className={`z-20 bg-bgGreen fixed ${menuVisibility} h-auto w-[95%] xsm:w-[400px] md:w-[600px] lg:h-auto lg:w-[30%] lg:min-w-[500px] lg:min-h-[55%] duration-[0.6s] border-b-2 border-b-[#74bb8f] border-l-2 border-l-[#74bb8f] `}
+          className={`z-20 bg-bgGreen fixed ${menuVisibility} h-auto w-[95%] xsm:w-[400px] md:w-[600px] lg:h-auto lg:min-w-[500px] lg:w-[auto] lg:min-h-[55%] duration-[0.6s] border-b-2 border-b-[#74bb8f] border-l-2 border-l-[#74bb8f] `}
         >
           <div className="w-auto h-[70px] lg:h-[100px] px-4 lg:px-12 flex justify-end items-center border-b-2 border-[#74bb8f]">
             <div
@@ -111,7 +111,7 @@ const NavBar = () => {
             </div>
           </div>
           {role === "admin" ? (
-            <ul className="font-bold text-[42px] lg:text-[50px] flex flex-col items-start text-[#74bb8f] leading-[50px] scale-y-110 my-14 ml-4 md:ml-7 md:my-16 md:leading-[55px]">
+            <ul className="font-bold text-[42px] lg:text-[50px] flex flex-col items-start text-[#74bb8f] leading-[50px] scale-y-110 my-14 ml-4 md:mx-7 md:my-16 md:leading-[55px]">
               <li className="hover:text-[#84d4a3] duration-150">
                 <NavLink to="/user-list">USER LIST</NavLink>
               </li>
@@ -119,7 +119,7 @@ const NavBar = () => {
                 <NavLink to="/banned-users">BANNED USERS</NavLink>
               </li>
               <li className="hover:text-[#84d4a3] duration-150">
-                <NavLink to="/unverified-reviews">UNVERIFIED REVIEWS</NavLink>
+                <NavLink to="/pending-reviews">PENDING REVIEWS</NavLink>
               </li>
             </ul>
           ) : role === "doctor" ? (
@@ -128,7 +128,7 @@ const NavBar = () => {
                 <NavLink to="/appointments">APPOINTMENTS</NavLink>
               </li>
               <li className="hover:text-[#84d4a3] duration-150">
-                <NavLink to="/reviews">REVIEWS (50/50)</NavLink>
+                <NavLink to="/reviews">REVIEWS</NavLink>
               </li>
             </ul>
           ) : (

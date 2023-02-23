@@ -2,10 +2,13 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import NavBar from "../../NavBar/NavBar";
-import { db } from "../../../firebase";
-import { getDoc, doc, setDoc, collection } from "firebase/firestore";
 import { useSelector } from "react-redux";
 import uuid from "react-uuid";
+import {
+  getSpecificDocumentFromCollection,
+  addDocumentToSubcollection,
+  addDocumentToCollection,
+} from "../../../firebaseQueries";
 
 const SpecificDoctor = () => {
   let [doctor, setDoctor] = useState({});
@@ -14,13 +17,15 @@ const SpecificDoctor = () => {
   const [reviewSended, setReviewSended] = useState(false);
   const { id } = useParams();
 
-  const getDocument = async (coll, id) => {
-    const snap = await getDoc(doc(db, coll, id));
-    setDoctor(snap.data());
-  };
-
   useEffect(() => {
-    getDocument("doctors", id);
+    (async () => {
+      try {
+        const snap = await getSpecificDocumentFromCollection("doctors", id);
+        setDoctor(snap);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
   }, []);
 
   const userName = useSelector((state) => state.user.name);
@@ -28,22 +33,26 @@ const SpecificDoctor = () => {
   const sendReview = async (e) => {
     e.preventDefault();
     const customID = uuid();
-
     const doctorName = doctor.name.split(" ")[0].toLowerCase();
-    const docRef = doc(db, "doctors", doctorName);
-    const subcollectionRef = collection(docRef, "reviews");
-    const newDocRef = doc(subcollectionRef, customID);
-    const newDocData = {
+    const dataToSet = {
       to: doctorName,
       from: userName,
       text: review,
-      approved: false,
       id: customID,
+      approved: false,
     };
-    await setDoc(newDocRef, newDocData);
-
-    const reviewRef = doc(db, "reviews", customID);
-    await setDoc(reviewRef, newDocData);
+    try {
+      await addDocumentToSubcollection(
+        "doctors",
+        doctorName,
+        "reviews",
+        customID,
+        dataToSet
+      );
+      await addDocumentToCollection("reviews", customID, dataToSet);
+    } catch (error) {
+      console.log(error);
+    }
     setReviewSended(true);
     setReview("");
   };
