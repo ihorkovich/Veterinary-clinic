@@ -5,8 +5,7 @@ import { auth } from "../../../firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../../redux/userSlice/userSlice";
-import { db } from "../../../firebase";
-import { getDoc, doc } from "firebase/firestore";
+import { getSpecificDocumentFromCollection } from "../../../firebaseQueries";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -14,17 +13,23 @@ const SignIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const signIn = async (e) => {
+  const handleEmailChange = (e) => setEmail(e.target.value);
+  const handlePasswordChange = (e) => setPassword(e.target.value);
+
+  const handleSignIn = async (e) => {
     e.preventDefault();
     try {
-      const user = await signInWithEmailAndPassword(auth, email, password);
-      const snap = await getDoc(doc(db, "users", `${user.user.uid}`));
-      const { name, surname, role } = snap.data();
-      try {
-        dispatch(setUser({ name, surname, email, role }));
-      } catch (error) {
-        alert(error);
-      }
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const userDoc = await getSpecificDocumentFromCollection(
+        "users",
+        userCredential.user.uid
+      );
+      const { name, surname, role } = userDoc;
+      dispatch(setUser({ name, surname, email, role }));
       navigate("/profile");
     } catch (error) {
       alert(error);
@@ -35,26 +40,26 @@ const SignIn = () => {
     <div className="bg-bgGreen min-h-screen h-auto pt-[200px]">
       <NavBar />
       <div className="min-h-full bg-bgGreen border border-black flex justify-center items-center">
-        <form>
+        <form onSubmit={handleSignIn}>
           <input
             type="email"
             placeholder="Email"
             required
-            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            onChange={handleEmailChange}
           />
           <input
             type="password"
             placeholder="Password"
             required
-            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            onChange={handlePasswordChange}
           />
-
-          <button type="submit" className="border-2" onClick={signIn}>
+          <button type="submit" className="border-2">
             Sign in(увійти)
           </button>
-
           <p>
-            Dont have an account?{" "}
+            Don't have an account?{" "}
             <Link to="/signup">
               <button className="underline">Register</button>
             </Link>
@@ -64,4 +69,5 @@ const SignIn = () => {
     </div>
   );
 };
+
 export default SignIn;

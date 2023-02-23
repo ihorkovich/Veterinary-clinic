@@ -1,20 +1,22 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import NavBar from "../../NavBar/NavBar";
-import { db } from "../../../firebase";
-import { getDoc, doc } from "@firebase/firestore";
+import { getSpecificDocumentFromCollection } from "../../../firebaseQueries";
 
 const SpecificService = () => {
   const [service, setService] = useState({});
   const { id } = useParams();
 
-  const getDocument = async (coll, id) => {
-    const snap = await getDoc(doc(db, coll, id));
-    setService(snap.data());
-  };
-
   useEffect(() => {
-    getDocument("services", id);
+    (async () => {
+      try {
+        const service = await getSpecificDocumentFromCollection("services", id);
+        console.log(service);
+        setService(service);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
   }, []);
 
   return (

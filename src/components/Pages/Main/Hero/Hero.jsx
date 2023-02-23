@@ -1,6 +1,6 @@
-import "./Hero.scss";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import "./Hero.scss";
 
 const Hero = () => {
   const userName = useSelector((state) => state.user.name);

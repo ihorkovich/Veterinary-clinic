@@ -1,30 +1,26 @@
-import NavBar from "../NavBar/NavBar";
-import { db } from "../../firebase";
-import { collection, getDocs, doc } from "@firebase/firestore";
+import NavBar from "../../NavBar/NavBar";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { getAllDocumentsFromSubcollection } from "../../../firebaseQueries";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
-
-  let name = useSelector((state) => state.user.name.toLowerCase());
-
-  const getReviews = async () => {
-    try {
-      const docRef = doc(db, "doctors", name);
-      const subcollectionRef = collection(docRef, "reviews");
-      const docsSnap = await getDocs(subcollectionRef);
-      docsSnap.forEach((doc) => {
-        doc.data().approved === true &&
-          setReviews((prev) => [...prev, doc.data()]);
-      });
-    } catch (error) {
-      alert(error);
-    }
-  };
+  const { name } = useSelector((state) => state.user);
 
   useEffect(() => {
-    getReviews();
+    (async () => {
+      try {
+        const allReviews = await getAllDocumentsFromSubcollection(
+          "doctors",
+          name.toLowerCase(),
+          "reviews"
+        );
+        const data = allReviews.filter((doc) => doc.approved === true);
+        setReviews(data);
+      } catch (error) {
+        alert(error);
+      }
+    })();
   }, []);
 
   return (

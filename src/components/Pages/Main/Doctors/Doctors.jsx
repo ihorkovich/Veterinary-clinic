@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { doctors } from "./data";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/effect-cards";
 import { EffectCards } from "swiper";
+import "swiper/css/effect-cards";
 import "swiper/css";
+import "swiper/css";
+import { doctors } from "./data";
 
 const Doctors = () => {
   return (

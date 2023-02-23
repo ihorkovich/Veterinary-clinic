@@ -10,7 +10,7 @@ const Services = () => {
       </h1>
       <div className="container px-4 grid grid-cols-1 grid-rows-auto">
         <div>
-          <Link to={"microchipping"}>
+          <Link to="microchipping">
             <img className="w-[200px] h-[200px] bg-green-300" />
             <p>Microchipping</p>
             <p>

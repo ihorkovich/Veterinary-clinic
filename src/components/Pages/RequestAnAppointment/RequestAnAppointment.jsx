@@ -1,50 +1,65 @@
 import { useSelector } from "react-redux";
-import NavBar from "../../NavBar/NavBar";
 import { useState, useEffect } from "react";
-import { db } from "../../../firebase";
-import { doc, setDoc, collection } from "firebase/firestore";
 import { Link } from "react-router-dom";
+import NavBar from "../../NavBar/NavBar";
+import uuid from "react-uuid";
+import { addDocumentToSubcollection } from "../../../firebaseQueries";
 
 const RequestAnAppointment = () => {
   const user = useSelector((state) => state.user);
 
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [email, setEmail] = useState("");
-  const [petName, setPetName] = useState("");
-  const [petSpecies, setPetSpecies] = useState("");
-  const [service, setService] = useState("");
-  const [toWhichDoctor, setToWhichDoctor] = useState("");
-  const [date, setDate] = useState("");
-  const [comment, setComment] = useState("");
+  const [appointmentData, setAppointmentData] = useState({
+    name: user.name || "",
+    surname: user.surname || "",
+    email: user.email || "",
+    pet_name: "",
+    pet_species: "",
+    service: "surgery",
+    toWhichDoctor: "amanda",
+    date: "",
+    comment: "",
+    ended: false,
+  });
 
   const [appointmentMade, setAppointmentMade] = useState(false);
 
   useEffect(() => {
-    setName(user.name);
-    setSurname(user.surname);
-    setEmail(user.email);
+    setAppointmentData((prevData) => ({
+      ...prevData,
+      name: user.name || "",
+      surname: user.surname || "",
+      email: user.email || "",
+    }));
   }, []);
 
-  const appointment = async (e) => {
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setAppointmentData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    const docRef = doc(db, "doctors", toWhichDoctor);
-    const subcollectionRef = collection(docRef, "appointments");
-    const newDocRef = doc(subcollectionRef);
-    const newDocData = {
-      name: name,
-      surname: surname,
-      email: email,
-      pet_name: petName,
-      pet_species: petSpecies,
-      service: service,
+    const customID = uuid();
+    const { toWhichDoctor, ...appointmentInfo } = appointmentData;
+    const data = {
+      ...appointmentInfo,
       doctor: toWhichDoctor,
-      date: date,
-      comment: comment,
       creation_time: Date.now(),
+      id: customID,
     };
-    await setDoc(newDocRef, newDocData);
-    setAppointmentMade(true);
+
+    try {
+      await addDocumentToSubcollection(
+        "doctors",
+        toWhichDoctor,
+        "appointments",
+        customID,
+        data
+      );
+      setAppointmentMade(true);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -62,41 +77,50 @@ const RequestAnAppointment = () => {
             </div>
           </div>
         ) : (
-          <form onSubmit={appointment} className="w-72">
+          <form onSubmit={handleFormSubmit} className="w-72">
             <input
               type="text"
+              name="name"
               label="First Name"
-              defaultValue={user.name}
-              onChange={(e) => setName(e.target.value)}
+              defaultValue={appointmentData.name}
+              onChange={handleInputChange}
             />
             <input
               type="text"
+              name="surname"
               label="Last Name"
-              defaultValue={user.surname}
-              onChange={(e) => setSurname(e.target.value)}
+              defaultValue={appointmentData.surname}
+              onChange={handleInputChange}
             />
             <input
               type="email"
+              name="email"
               label="Email"
-              defaultValue={user.email}
-              onChange={(e) => setEmail(e.target.value)}
+              defaultValue={appointmentData.email}
+              onChange={handleInputChange}
             />
             <input
               type="text"
+              name="pet_name"
               label="Pet's Name"
               placeholder="pet's name"
-              onChange={(e) => setPetName(e.target.value)}
+              defaultValue={appointmentData.pet_name}
+              onChange={handleInputChange}
             />
             <input
               type="text"
+              name="pet_species"
               label="Pet Species"
               placeholder="pet species"
-              onChange={(e) => setPetSpecies(e.target.value)}
+              defaultValue={appointmentData.pet_species}
+              onChange={handleInputChange}
             />
             <select
+              name="service"
               label="What services are you requesting?"
               placeholder="what service"
-              onChange={(e) => setService(e.target.value)}
+              defaultValue={appointmentData.service}
+              onChange={handleInputChange}
             >
               <option value="surgery">surgery</option>
               <option value="dermatology">dermatology</option>
@@ -107,9 +131,11 @@ const RequestAnAppointment = () => {
               <option value="wellness exams">wellness exams</option>
             </select>
             <select
-              label="To which doctor?"
               placeholder="choose doctor"
-              onChange={(e) => setToWhichDoctor(e.target.value)}
+              name="toWhichDoctor"
+              label="Which doctor would you like to visit?"
+              value={appointmentData.toWhichDoctor}
+              onChange={handleInputChange}
             >
               <option value="amanda">Amanda Bright</option>
               <option value="anne">Anne Dolkins</option>
@@ -119,18 +145,23 @@ const RequestAnAppointment = () => {
             </select>
             <input
               type="date"
-              className="m-5"
-              min={`${new Date().getFullYear()}-
-              ${new Date().getMonth() + 1}-
-              ${new Date().getDay()}`}
+              name="date"
+              min={new Date().toISOString().split("T")[0]}
+              max={
+                new Date(new Date().setDate(new Date().getDate() + 7))
+                  .toISOString()
+                  .split("T")[0]
+              }
               placeholder="choose appointment time"
-              onChange={(e) => setDate(e.target.value)}
+              value={appointmentData.date}
+              onChange={handleInputChange}
             />
-            <input
-              type="text"
-              label="Additional Comment"
-              placeholder="additional comment (optional)"
-              onChange={(e) => setComment(e.target.value)}
+            <textarea
+              name="comment"
+              label="Additional Comments"
+              placeholder="Add any additional comments here"
+              value={appointmentData.comment}
+              onChange={handleInputChange}
             />
             <button className="p-3 border" type="submit">
               Submit
