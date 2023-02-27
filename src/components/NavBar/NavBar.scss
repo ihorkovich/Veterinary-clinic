@@ -1,5 +1,6 @@
-.burger-menu:before,
-.menu-burger:before {
+.burger-menu::before,
+.menu-burger::before,
+.profile::before {
   content: "";
   position: absolute;
   margin-top: 2px;
@@ -9,6 +10,11 @@
   background-color: #74bb8f;
   z-index: -1;
   transition-duration: 0.2s;
+}
+
+.profile::before {
+  margin-top: 3.5px;
+  margin-left: 6px;
 }
 
 .active {

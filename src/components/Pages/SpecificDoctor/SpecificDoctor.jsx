@@ -29,6 +29,7 @@ const SpecificDoctor = () => {
   }, []);
 
   const userName = useSelector((state) => state.user.name);
+  const userSurname = useSelector((state) => state.user.surname);
 
   const sendReview = async (e) => {
     e.preventDefault();
@@ -36,7 +37,7 @@ const SpecificDoctor = () => {
     const doctorName = doctor.name.split(" ")[0].toLowerCase();
     const dataToSet = {
       to: doctorName,
-      from: userName,
+      from: `${userName} ${userSurname}`,
       text: review,
       id: customID,
       approved: false,

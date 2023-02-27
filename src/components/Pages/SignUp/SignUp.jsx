@@ -42,6 +42,7 @@ const SignUp = () => {
         email,
         role,
         banned: false,
+        sent: false,
         id: userCredential.user.uid,
       };
       await addDocumentToCollection("users", userCredential.user.uid, userData);
