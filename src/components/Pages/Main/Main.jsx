@@ -3,8 +3,8 @@ import Hero from "./Hero/Hero";
 import Doctors from "./Doctors/Doctors";
 import SomeServices from "./SomeServices/SomeServices";
 import QNA from "./QNA/QNA";
-import Location from "./Location/Location";
-import Footer from "../../Footer/Footer";
+import Testimonials from "./Testimonials/Testimonials";
+import Footer from "./Footer/Footer";
 
 const Main = () => {
   return (
@@ -14,7 +14,7 @@ const Main = () => {
       <Doctors />
       <SomeServices />
       <QNA />
-      <Location />
+      <Testimonials />
       <Footer />
     </div>
   );

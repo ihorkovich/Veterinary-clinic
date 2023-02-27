@@ -1,0 +1,50 @@
+.swipe-horizontal {
+  opacity: 0.75;
+}
+.line-horizontal {
+  fill: transparent;
+  stroke: #000;
+  stroke-width: 3px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.arrow-left,
+.arrow-right {
+  fill: transparent;
+  stroke: #081800;
+  stroke-width: 3px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.hand-x {
+  animation-name: swipe-x;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: backwards;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
+}
+@keyframes swipe-x {
+  0% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(30px) rotate(10deg);
+  }
+  50% {
+    transform: translateX(0px);
+  }
+  75% {
+    transform: translateX(-30px) rotate(-10deg);
+  }
+}
+
+.slick-slider > ul > li > button::before {
+  display: none !important;
+}
+
+.slick-slider > ul {
+  width: 125px !important;
+  margin-left: 125px !important;
+}

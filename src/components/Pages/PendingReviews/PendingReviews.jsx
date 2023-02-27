@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import {
   getAllDocumentsFromCollection,
   updateDocumentInSubcollection,
+  updateSpecificDocumentInCollection,
   deleteSpecificDocumentFromCollection,
   deleteSpecificDocumentFromSubcollection,
 } from "../../../firebaseQueries";
@@ -15,7 +16,10 @@ const PendingReviews = () => {
     (async () => {
       try {
         const reviewsData = await getAllDocumentsFromCollection("reviews");
-        setReviews(reviewsData);
+        const allReviews = reviewsData.filter(
+          (review) => review.approved === true
+        );
+        setReviews(allReviews);
       } catch (error) {
         console.error(error);
       }
@@ -31,7 +35,9 @@ const PendingReviews = () => {
       await updateDocumentInSubcollection("doctors", to, "reviews", id, {
         approved: true,
       });
-      await deleteSpecificDocumentFromCollection("reviews", id);
+      await updateSpecificDocumentInCollection("reviews", id, {
+        approved: true,
+      });
     } catch (error) {
       console.log(error);
     }

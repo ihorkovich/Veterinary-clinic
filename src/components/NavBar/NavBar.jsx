@@ -29,9 +29,9 @@ const NavBar = () => {
   const role = useSelector((state) => state.user.role);
 
   return (
-    <div className="w-screen fixed top-0 left-0 h-[75px] lg:h-[100px] z-20">
-      <div className="px-4 lg:px-12 flex justify-between items-center h-full">
-        <div className="w-auto h-11 flex justify-center align-center z-20">
+    <div className="w-screen px-0 lg:px-12 fixed top-0 left-0 h-[75px] lg:h-[90px] z-20">
+      <div className="px-4 lg:px-0 flex justify-between items-center h-full">
+        <div className="w-auto h-11 flex justify-center align-center">
           <Link to={role === "user" ? "/" : ""}>
             <img
               src="src/assets/logo/logo.png"
@@ -40,22 +40,58 @@ const NavBar = () => {
             />
           </Link>
         </div>
-        <div>{role}</div>
         <div className="flex gap-8">
-          <div className="w-10 h-10 lg:w-12 lg:h-12 border border-[#74bb8f] flex justify-center items-center text-[#74bb8f]">
-            <Link to={role != null ? "/profile" : "/signup"}>
-              <button className="">{role != null ? "Profile" : "Login"}</button>
+          <div className="profile w-10 h-10 lg:w-12 lg:h-12 border border-secGreen flex justify-center items-center text-secGreen">
+            <Link
+              to={role != null ? "/profile" : "/signup"}
+              className="w-full h-full flex justify-center items-center bg-bgGreen"
+            >
+              <button className="text-sm lg:text-lg">
+                {role != null ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    className="bg-bgGreen w-full h-full"
+                    viewBox="0 0 16 16"
+                  >
+                    {" "}
+                    <path
+                      d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+                      fill="#74bb8f"
+                    ></path>{" "}
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    className="bg-bgGreen w-[78%] h-[78%]"
+                    viewBox="0 0 16 16"
+                  >
+                    {" "}
+                    <path
+                      fill-rule="evenodd"
+                      d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"
+                      fill="#74bb8f"
+                    ></path>{" "}
+                    <path
+                      fill-rule="evenodd"
+                      d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
+                      fill="#74bb8f"
+                    ></path>{" "}
+                  </svg>
+                )}
+              </button>
             </Link>
           </div>
           <div
             className="w-10 h-10 lg:h-12 lg:w-[6.5rem] burger-menu hover:cursor-pointer lg:flex"
             onClick={openMenu}
           >
-            <div className="hidden lg:px-2 lg:bg-bgGreen lg:border lg:border-[#74bb8f] lg:border-r-0 text-[#74bb8f] lg:text-lg lg:flex lg:justify-center lg:items-center">
+            <div className="hidden lg:px-2 lg:bg-bgGreen lg:border lg:border-secGreen lg:border-r-0 text-secGreen lg:text-lg lg:flex lg:justify-center lg:items-center">
               Menu
             </div>
             <svg
-              className="border border-[#74bb8f] bg-bgGreen lg:border-l-0"
+              className="border border-secGreen bg-bgGreen lg:border-l-0"
               xmlns="http://www.w3.org/2000/svg"
               xmlnsXlink="http://www.w3.org/1999/xlink"
               zoomAndPan="magnify"
@@ -85,14 +121,14 @@ const NavBar = () => {
           </div>
         </div>
         <div
-          className={`z-20 bg-bgGreen fixed ${menuVisibility} h-auto w-[95%] xsm:w-[400px] md:w-[600px] lg:h-auto lg:min-w-[500px] lg:w-[auto] lg:min-h-[55%] duration-[0.6s] border-b-2 border-b-[#74bb8f] border-l-2 border-l-[#74bb8f] `}
+          className={`z-20 bg-bgGreen fixed ${menuVisibility} h-auto w-[95%] xsm:w-[400px] md:w-[600px] lg:h-auto lg:min-w-[500px] lg:w-[auto] lg:min-h-[55%] duration-[0.6s] border-b-2 border-b-secGreen border-l-2 border-l-secGreen `}
         >
-          <div className="w-auto h-[70px] lg:h-[100px] px-4 lg:px-12 flex justify-end items-center border-b-2 border-[#74bb8f]">
+          <div className="w-auto h-[70px] lg:h-[90px] px-4 lg:px-12 flex justify-end items-center border-b-2 border-secGreen">
             <div
               className={`w-10 h-10 lg:w-12 lg:h-12 ${closeButtonOpacity} menu-burger hover:cursor-pointer duration-200 lg:w-[6.5rem] lg:flex`}
               onClick={closeMenu}
             >
-              <div className="hidden lg:px-2 lg:bg-bgGreen lg:border lg:border-[#74bb8f] lg:border-r-0 text-[#74bb8f] lg:text-lg lg:flex lg:justify-center lg:items-center">
+              <div className="hidden lg:px-2 lg:bg-bgGreen lg:border lg:border-secGreen lg:border-r-0 text-secGreen lg:text-lg lg:flex lg:justify-center lg:items-center">
                 Menu
               </div>
               <svg
@@ -100,7 +136,7 @@ const NavBar = () => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 id="IconChangeColor"
-                className="border border-[#74bb8f] bg-bgGreen lg:w-12 lg:h-12 lg:border-l-0"
+                className="border border-secGreen bg-bgGreen lg:w-12 lg:h-12 lg:border-l-0"
               >
                 <path
                   d="M17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41L17.59 5Z"
@@ -111,7 +147,7 @@ const NavBar = () => {
             </div>
           </div>
           {role === "admin" ? (
-            <ul className="font-bold text-[42px] lg:text-[50px] flex flex-col items-start text-[#74bb8f] leading-[50px] scale-y-110 my-14 ml-4 md:mx-7 md:my-16 md:leading-[55px]">
+            <ul className="font-bold text-[42px] lg:text-[50px] flex flex-col items-start text-secGreen leading-[50px] scale-y-110 my-14 ml-4 md:mx-7 md:my-16 md:leading-[55px]">
               <li className="hover:text-[#84d4a3] duration-150">
                 <NavLink to="/user-list">USER LIST</NavLink>
               </li>
@@ -123,7 +159,7 @@ const NavBar = () => {
               </li>
             </ul>
           ) : role === "doctor" ? (
-            <ul className="font-bold text-[42px] lg:text-[50px] flex flex-col items-start text-[#74bb8f] leading-[50px] scale-y-110 my-14 ml-4 md:ml-7 md:my-16 md:leading-[55px]">
+            <ul className="font-bold text-[42px] lg:text-[50px] flex flex-col items-start text-secGreen leading-[50px] scale-y-110 my-14 ml-4 md:ml-7 md:my-16 md:leading-[55px]">
               <li className="hover:text-[#84d4a3] duration-150">
                 <NavLink to="/appointments">APPOINTMENTS</NavLink>
               </li>
@@ -132,7 +168,7 @@ const NavBar = () => {
               </li>
             </ul>
           ) : (
-            <ul className="font-bold text-[42px] lg:text-[50px] flex flex-col items-start text-[#74bb8f] leading-[50px] scale-y-110 my-14 ml-4 md:ml-7 md:my-16 md:leading-[55px]">
+            <ul className="font-bold text-[42px] lg:text-[50px] flex flex-col items-start text-secGreen leading-[50px] scale-y-110 my-14 ml-4 md:ml-7 md:my-16 md:leading-[55px]">
               <li className="hover:text-[#84d4a3] duration-150">
                 <NavLink to="/">HOME</NavLink>
               </li>
@@ -156,6 +192,7 @@ const NavBar = () => {
       </div>
       <div
         className={`fixed bottom-0 right-0 ${bgMenuOpacity} w-[100vw] backdrop-blur-sm duration-300 z-[18]`}
+        onClick={closeMenu}
       ></div>
       <Outlet />
     </div>
