@@ -36,7 +36,7 @@ const Testimonials = () => {
                       className="p-6 rounded-sm shadow-md relative"
                       key={review.id}
                     >
-                      <div className="text-[100px] absolute -top-3 left-3 opacity-10">
+                      <div className="text-[100px] absolute -top-3 left-3 opacity-10 select-none">
                         🙷
                       </div>
                       <p className="text-blackGreen text-[16px]">
@@ -63,7 +63,7 @@ const Testimonials = () => {
                       className="p-6 rounded-sm shadow-md relative"
                       key={review.id}
                     >
-                      <div className="text-[100px] absolute -top-3 left-3 opacity-10">
+                      <div className="text-[100px] absolute -top-3 left-3 opacity-10 select-none">
                         🙷
                       </div>
                       <p>{review.text}</p>

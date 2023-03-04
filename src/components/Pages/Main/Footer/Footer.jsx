@@ -2,58 +2,99 @@ import "./Footer.scss";
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import Modal from "../../../Modal/Modal";
 import {
   getSpecificDocumentFromCollection,
   updateSpecificDocumentInCollection,
 } from "../../../../firebaseQueries";
 
 const Footer = () => {
-  const [inputClass, setInputClass] = useState("");
-  const form = useRef();
+  const [title, setTitle] = useState("");
+  const [message, setMessage] = useState("");
+  const [modalActive, setModalActive] = useState(false);
 
-  const handleInput = (e) => {
+  const schema = yup.object().shape({
+    user_name: yup
+      .string()
+      .required("Name is required")
+      .min(3, "Name should contain 3 or more letters"),
+    subject_of_address: yup
+      .string()
+      .required("Subject of address is required")
+      .min(6, "Subject of address should contain 6 or more letters"),
+    user_email: yup
+      .string()
+      .required("Email is required")
+      .email("Entered value does not match email format")
+      .min(11, "Email should contain 11 or more symbols"),
+    message: yup
+      .string()
+      .required("Message is required")
+      .min(30, "Mesage must be at least 30 characters"),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({ mode: "onBlur", resolver: yupResolver(schema) });
+
+  const handleInputChange = (e) => {
     if (e.target.value.length >= 1) {
       setInputClass(e.target.classList.add("input-length-more-1"));
     } else {
       setInputClass(e.target.classList.remove("input-length-more-1"));
     }
   };
+
+  const [inputClass, setInputClass] = useState("");
+  const form = useRef();
+
   const id = useSelector((state) => state.user.id);
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    (async () => {
-      try {
-        const userSent = await getSpecificDocumentFromCollection("users", id);
-
-        if (userSent.sent === false) {
-          emailjs
-            .sendForm(
-              import.meta.env.VITE_SERVICE_ID,
-              import.meta.env.VITE_TEMPLATE_ID,
-              form.current,
-              import.meta.env.VITE_PUBLIC_KEY
-            )
-            .then(
-              (result) => {
-                console.log(result.text);
-                e.target.reset();
-                setInputClass("");
-                updateSpecificDocumentInCollection("users", id, { sent: true });
-              },
-              (error) => {
-                console.log(error.text);
-              }
-            );
-          console.log("sdfsdfsdf");
-        } else {
-          alert("You've already sent an email💖");
-        }
-      } catch (error) {
-        console.log(error);
+  const sendEmail = async () => {
+    const userSent = await getSpecificDocumentFromCollection("users", id);
+    try {
+      if (userSent.sent === false) {
+        emailjs.sendForm(
+          import.meta.env.VITE_SERVICE_ID,
+          import.meta.env.VITE_TEMPLATE_ID,
+          form.current,
+          import.meta.env.VITE_PUBLIC_KEY
+        );
+        reset();
+        setInputClass("");
+        await updateSpecificDocumentInCollection("users", id, {
+          sent: true,
+        });
+        setModalActive(true);
+        setTitle("Thank you for your message");
+        setMessage("Expect a response in the near future");
       }
-    })();
+      if (userSent.sent === true) {
+        setModalActive(true);
+        setTitle("You have already sent an email");
+        setMessage("Expect a response in the near future");
+      }
+    } catch (error) {
+      if (
+        error.message == "Cannot read properties of null (reading 'indexOf')"
+      ) {
+        setModalActive(true);
+        setTitle("Only registered users can send message");
+        setMessage("Register or sign in to send an email");
+      } else {
+        setModalActive(true);
+        setTitle("Something went wrong");
+        setMessage(
+          "Please try again. If the error hasn't disappeared, go to the contacts section and try to connect with us through those ways"
+        );
+      }
+    }
   };
 
   return (
@@ -65,47 +106,70 @@ const Footer = () => {
         <form
           className="flex flex-col justify-around items-start gap-7 mt-10 md:mt-10 lg:mt-16 max-w-[1280px] mx-auto"
           ref={form}
-          onSubmit={sendEmail}
+          onSubmit={handleSubmit(sendEmail)}
         >
-          <div className="form-field">
+          <div className="form-field border-b-2 border-secGreen">
             <input
               type="text"
-              name="subject_of_address"
+              {...register("subject_of_address")}
               className={`${inputClass} input text-[#74bb8f] px-[7px] text-[17px]`}
-              onChange={handleInput}
+              onChange={handleInputChange}
             />
             <label className="label text-[17px]">Subject of address</label>
           </div>
+          {errors.subject_of_address && (
+            <p className="text-red-500 text-[12px] -mt-6">
+              {errors.subject_of_address.message}
+            </p>
+          )}
           <div className="w-full flex flex-col lg:flex-row gap-7">
-            <div className="form-field">
-              <input
-                type="text"
-                name="user_name"
-                className={`${inputClass} input text-[#74bb8f] px-[7px] text-[17px]`}
-                onChange={handleInput}
-              />
-              <label className="label text-[17px]">Your name</label>
+            <div className="lg:w-1/2">
+              <div className="form-field border-b-2 border-secGreen">
+                <input
+                  type="text"
+                  {...register("user_name")}
+                  className={`${inputClass} input text-[#74bb8f] px-[7px] text-[17px]`}
+                  onChange={handleInputChange}
+                />
+                <label className="label text-[17px]">Your name</label>
+              </div>
+              {errors.user_name && (
+                <p className="text-red-500 text-[12px] mt-1">
+                  {errors.user_name.message}
+                </p>
+              )}
             </div>
-            <div className="form-field">
-              <input
-                type="email"
-                name="user_email"
-                className={`${inputClass} input text-[#74bb8f] px-[7px] text-[17px]`}
-                onChange={handleInput}
-              />
-              <label className="label text-[17px]">Email</label>
+            <div className="lg:w-1/2">
+              <div className="form-field border-b-2 border-secGreen">
+                <input
+                  type="email"
+                  {...register("user_email")}
+                  className={`${inputClass} input text-[#74bb8f] px-[7px] text-[17px]`}
+                  onChange={handleInputChange}
+                />
+                <label className="label text-[17px]">Email</label>
+              </div>
+              {errors.user_email && (
+                <p className="text-red-500 text-[12px] mt-1">
+                  {errors.user_email.message}
+                </p>
+              )}
             </div>
           </div>
-          <div className="form-field">
+          <div className="form-field border-b-2 border-secGreen">
             <input
               type="text"
-              name="message"
+              {...register("message")}
               className={`${inputClass} input text-[#74bb8f] px-[7px] text-[17px]`}
-              onChange={handleInput}
+              onChange={handleInputChange}
             />
             <label className="label text-[17px]">Message</label>
           </div>
-
+          {errors.message && (
+            <p className="text-red-500 text-[12px] -mt-6">
+              {errors.message.message}
+            </p>
+          )}
           <div className="z-0 mt-3">
             <button
               type="submit"
@@ -153,6 +217,15 @@ const Footer = () => {
           <br /> All rights reserved.
         </p>
       </div>
+      <Modal
+        active={modalActive}
+        setActive={setModalActive}
+        title={title}
+        message={message}
+        button={true}
+        linkTo={null}
+        buttonText={"Ok"}
+      />
     </div>
   );
 };
