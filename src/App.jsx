@@ -19,6 +19,7 @@ import Appointments from "./components/Pages/Appointments/Appointments";
 import SpecificAppointment from "./components/Pages/SpecificAppointment/SpecificAppointment";
 import Reviews from "./components/Pages/Reviews/Reviews";
 import { APrivateRoutes, DPrivateRoutes } from "./privateRoutes";
+import ResetPassword from "./components/Pages/ResetPassword/ResetPassword";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/request-appointment" element={<RequestAnAppointment />} />
         <Route path="/services" element={<Services />} />
         <Route path="/services/:id" element={<SpecificService />} />
