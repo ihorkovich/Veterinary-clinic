@@ -33,7 +33,7 @@ const Footer = () => {
     message: yup
       .string()
       .required("Message is required")
-      .min(30, "Mesage must be at least 30 characters"),
+      .min(30, "Message must be at least 30 characters"),
   });
 
   const {
@@ -184,28 +184,28 @@ const Footer = () => {
       <div className="flex justify-center items-center gap-5 mt-14 mb-2">
         <a href="https://uahelp.monobank.ua/" target={"_blank"}>
           <img
-            src="src/assets/contact-links-img/github.svg"
+            src="/assets/contact-links-img/github.svg"
             alt="github"
             className="w-7 aspect-square hover:opacity-80 duration-200"
           />
         </a>
         <a href="https://uahelp.monobank.ua/" target={"_blank"}>
           <img
-            src="src/assets/contact-links-img/linkedin.svg"
+            src="/assets/contact-links-img/linkedin.svg"
             alt="linkedin"
             className="w-7 aspect-square hover:opacity-80 duration-200"
           />
         </a>
         <a href="https://uahelp.monobank.ua/" target={"_blank"}>
           <img
-            src="src/assets/contact-links-img/twitter.svg"
+            src="/assets/contact-links-img/twitter.svg"
             alt="twitter"
             className="w-7 aspect-square hover:opacity-80 duration-200"
           />
         </a>
         <a href="https://uahelp.monobank.ua/" target={"_blank"}>
           <img
-            src="src/assets/contact-links-img/money.svg"
+            src="/assets/contact-links-img/money.svg"
             alt="money"
             className="w-7 aspect-square hover:opacity-80 duration-200"
           />

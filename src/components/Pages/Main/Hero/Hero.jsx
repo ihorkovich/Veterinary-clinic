@@ -6,16 +6,16 @@ const Hero = () => {
   const userName = useSelector((state) => state.user.name);
 
   return (
-    <div className="w-full px-4 overflow-hidden flex flex-col justify-end items-center h-[100vh] relative pb-12 lg:pb-5">
+    <div className="w-full px-4 overflow-hidden flex flex-col justify-end items-center h-[100vh] relative pb-12 lg:pb-5 -mt-12 md:-mt-16 lg:-mt-20">
       <div className="absolute top-0 left-0 aspect-[16/13.6] h-full sm:h-auto overflow-hidden sm:overflow-visible">
         <img
-          src="src/assets/hero/bg-main-top.png"
+          src="/assets/hero/bg-main-top.png"
           alt="hero-background"
           className="opacity-[0.3] w-full h-auto"
         />
       </div>
       <div className="z-10 w-full lg:flex lg:justify-between lg:items-start lg:gap-20 max-w-[1280px]">
-        <h1 className="font-bold w-full text-[5rem] leading-[4.2rem] sm:text-[6rem] sm:leading-[5rem] md:text-[7rem] md:leading-[6rem] lg:text-[9rem] lg:leading-[7.8rem] lg:flex lg:flex-col lg:justify-start lg:items-start text-secGreen">
+        <h1 className="font-bold w-full text-[4rem] leading-[4.2rem] sm:text-[6rem] sm:leading-[5rem] md:text-[7rem] md:leading-[6rem] lg:text-[9rem] lg:leading-[7.8rem] lg:flex lg:flex-col lg:justify-start lg:items-start text-secGreen">
           <div className="">
             Q<span className="text-[#0057B8]">U</span>
             <span className="text-[#FFD500]">A</span>LITY
@@ -41,7 +41,7 @@ const Hero = () => {
           </h2>
           <div className="mt-8 flex justify-start z-10">
             <Link to={userName === null ? "/signup" : "/request-appointment"}>
-              <button className="hero-button bg-bgGreen border border-secGreen text-secGreen w-[100px] h-[45px]">
+              <button className="hero-button button bg-bgGreen border border-secGreen text-secGreen w-[100px] h-[45px]">
                 Book now
               </button>
             </Link>

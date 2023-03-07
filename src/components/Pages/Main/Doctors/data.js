@@ -6,7 +6,7 @@ export const doctors = [
     experience: 6,
     image: "https://gcdnb.pbrd.co/images/2lgoDwoVmglk.jpg?o=1",
     description:
-      "Anne is a skilled and experienced veterinary professional with 6 years of experience in the field. As a licensed veterinary technician, she has a deep understanding of animal care and welfare and is dedicated to providing the highest level of care...",
+      "As a therapist at a vet clinic for the past 6 years, Anne has gained extensive experience in helping animals and their owners overcome emotional and behavioral issues. Her compassionate and patient approach has earned her the trust and respect of her clients, and she takes...",
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const doctors = [
     experience: 10,
     image: "https://gcdnb.pbrd.co/images/PaqbwYZyZPeG.jpg?o=1",
     description:
-      "With 10 years of experience as a licensed veterinarian, William is a seasoned professional in the field of animal care. His extensive knowledge of veterinary medicine, including surgery, emergency care, dentistry, and rehabilitation, is matched only...",
+      "William is a remarkable employee at a vet clinic, having been working for 8 years. His exemplary work ethic and unwavering commitment to providing top-quality care to animals make him an invaluable member of the veterinary team. His love for animals is reflected in his...",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ export const doctors = [
     experience: 8,
     image: "https://gcdnb.pbrd.co/images/YaGjlktepF1o.jpg?o=1",
     description:
-      "When it comes to veterinary care, there's nothing that Olivia can't do. With 8 years of experience in the field, she has honed her skills in every aspect of animal care, from routine check-ups to complex surgeries. As a licensed veterinary professional...",
+      "Olivia is a skilled surgeon at a vet clinic with 8 years of experience. Her exceptional surgical skills and attention to detail have made her a highly sought-after professional in the veterinary industry. She is passionate about her work and takes pride in providing the...",
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ export const doctors = [
     experience: 13,
     image: "https://gcdnb.pbrd.co/images/o8djbMfTWvSL.jpg?o=1",
     description:
-      "Milton is a highly skilled and dedicated veterinary professional with 13 years of experience in the field. Specializing in dermatology, vaccinations, and wellness exams, he is committed to providing the best possible care to pets under his watch. As a licensed...",
+      "Milton is a highly skilled dentist at a vet clinic with over 13 years of experience. His expertise in animal dentistry has earned him a reputation as one of the best in the industry. He takes great pride in providing top-notch dental care to his patients, ensuring their...",
   },
   {
     id: 5,
@@ -42,6 +42,6 @@ export const doctors = [
     experience: 3,
     image: "https://gcdnb.pbrd.co/images/sDBQG3Wq1Cq1.jpg?o=1",
     description:
-      "Amanda is a rising star in the world of veterinary care. With 3 years of experience under her belt, she is still learning the ropes, but her dedication and passion for animal care are unmatched. Her desire to become the best in the field drives her to continuously...",
+      "Amanda, with her 3 years of experience working in a vet clinic, is an expert in providing high-quality care to animals. Her knowledge and skills in the field have made her a valuable member of the veterinary team. She has a deep love and respect for all creatures great and...",
   },
 ];

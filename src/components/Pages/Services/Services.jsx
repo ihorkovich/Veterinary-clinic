@@ -1,91 +1,37 @@
 import { Link } from "react-router-dom";
 import NavBar from "../../NavBar/NavBar";
+import { services } from "./data";
+import "./Services.scss";
 
 const Services = () => {
   return (
-    <div>
-      <NavBar />
-      <h1 className="text-center text-3xl text-textGreen">
+    <div className="bg-[#adc6af] min-h-screen">
+      <NavBar bg={"#adc6af"} />
+      <h2 class="mb-10 text-5xl md:text-7xl xl:text-8xl text-center font-bold font-heading tracking-px-n leading-none text-bgGreen">
         All services we provide
-      </h1>
-      <div className="container px-4 grid grid-cols-1 grid-rows-auto">
-        <div>
-          <Link to="microchipping">
-            <img className="w-[200px] h-[200px] bg-green-300" />
-            <p>Microchipping</p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-              numquam temporibus rem inventore sed. Ut saepe voluptatibus neque
-              incidunt accusamus.
-            </p>
+      </h2>
+      <div className="pb-10 mx-auto grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:grid-rows-2 lg:grid-cols-4 max-w-[1280px]">
+        {services.map((service) => (
+          <Link
+            to={`/services/${service.link}`}
+            key={service.id}
+            className="w-full group cell hover:shadow-lg hover:-translate-y-2 duration-200"
+          >
+            <div className="duration-200 content border flex flex-col justify-around items-center rounded-sm border-bgGreen group-hover:bg-bgGreen text-sm pl-7 pt-7 pr-7 pb-7 sm:h-full">
+              <img
+                src={`/assets/services/${service.icon}.png`}
+                className="w-10 h-10 xsm:w-20 xsm:h-20 sm:w-14 sm:h-14 md:w-16 md:h-16 group-hover:hidden duration-200"
+              />
+              <img
+                src={`/assets/services/${service.revert_icon}.png`}
+                className="w-10 h-10 xsm:w-20 xsm:h-20 sm:w-14 sm:h-14 md:w-16 md:h-16 hidden group-hover:block duration-200"
+              />
+              <p className="text-bgGreen group-hover:text-[#adc6af] mt-4 font-bold text-lg xsm:text-2xl duration-200">
+                {service.name}
+              </p>
+            </div>
           </Link>
-        </div>
-        <div>
-          <Link to="dental care">
-            <img className="w-[200px] h-[200px] bg-green-300" />
-            <p>DENTISTRY</p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-              numquam temporibus rem inventore sed. Ut saepe voluptatibus neque
-              incidunt accusamus.
-            </p>
-          </Link>
-        </div>
-        <div>
-          <Link to="wellness exams">
-            <img className="w-[200px] h-[200px] bg-green-300" />
-            <p>WELLNESS EXAMS</p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-              numquam temporibus rem inventore sed. Ut saepe voluptatibus neque
-              incidunt accusamus.
-            </p>
-          </Link>
-        </div>
-        <div>
-          <Link to="rehabilitation">
-            <img className="w-[200px] h-[200px] bg-green-300" />
-            <p>REHABILITATION</p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-              numquam temporibus rem inventore sed. Ut saepe voluptatibus neque
-              incidunt accusamus.
-            </p>
-          </Link>
-        </div>
-        <div>
-          <Link to="surgery">
-            <img className="w-[200px] h-[200px] bg-green-300" />
-            <p>Surgery</p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-              numquam temporibus rem inventore sed. Ut saepe voluptatibus neque
-              incidunt accusamus.
-            </p>
-          </Link>
-        </div>
-        <div>
-          <Link to="vaccinations">
-            <img className="w-[200px] h-[200px] bg-green-300" />
-            <p>VACCINATIONS</p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-              numquam temporibus rem inventore sed. Ut saepe voluptatibus neque
-              incidunt accusamus.
-            </p>
-          </Link>
-        </div>
-        <div>
-          <Link to="dermatology">
-            <img className="w-[200px] h-[200px] bg-green-300" />
-            <p>DERMATOLOGY</p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-              numquam temporibus rem inventore sed. Ut saepe voluptatibus neque
-              incidunt accusamus.
-            </p>
-          </Link>
-        </div>
+        ))}
       </div>
     </div>
   );

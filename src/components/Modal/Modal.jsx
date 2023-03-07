@@ -26,7 +26,7 @@ const Modal = ({
         active ? "" : "hidden"
       } fixed top-0 left-0 flex items-center w-screen h-screen z-50`}
     >
-      <Link to={`${linkTo ? linkTo : "/"}`} className="hover:cursor-default">
+      <Link to={`${linkTo ? linkTo : ""}`} className="hover:cursor-default">
         <div
           className={`${closing} backdrop-blur-sm absolute top-0 left-0 w-screen h-screen modal bg-gray-700 bg-opacity-20`}
           onClick={closeModal}
@@ -36,7 +36,7 @@ const Modal = ({
         className={`${closing} sm:w-[600px] sm:mx-auto bg-secGreen opacity-85 w-full mx-4 h-auto min-h-[190px] rounded-sm flex flex-col justify-start items-center relative modal`}
       >
         <div className="w-full pt-3 px-3 flex justify-end sm:h-0 sm:absolute">
-          <Link to={`${linkTo ? linkTo : "/"}`}>
+          <Link to={`${linkTo ? linkTo : ""}`}>
             <div
               className="sm:absolute sm:right-3 sm:top-3 w-10 h-10 border border-bgGreen hover:cursor-pointer rounded-sm"
               onClick={closeModal}

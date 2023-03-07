@@ -73,9 +73,9 @@ const SignIn = () => {
   };
 
   return (
-    <div className="bg-bgGreen min-h-screen flex justify-center items-center">
-      <NavBar display={"block"} />
-      <div className="min-h-full bg-bgGreen px-4 flex flex-col justify-center">
+    <div className="bg-bgGreen min-h-screen">
+      <NavBar />
+      <div className="min-h-full bg-bgGreen flex flex-col justify-center max-w-[400px] mx-auto px-4">
         <h1 className="text-4xl font-bold text-secGreen my-2 text-center">
           Welcome Back
         </h1>
@@ -84,7 +84,7 @@ const SignIn = () => {
         </p>
         <form
           onSubmit={handleSignIn}
-          className="sign-in-form mt-10 w-full rounded-sm flex flex-col flex-start gap-3 max-w-[400px]"
+          className="sign-in-form mt-10 w-full rounded-sm flex flex-col flex-start gap-3"
         >
           <div className="form-field-auth h-[50px]">
             <input

@@ -1,95 +1,46 @@
 import { Link } from "react-router-dom";
 import NavBar from "../../NavBar/NavBar";
+import { doctors } from "./data";
 
 const Doctors = () => {
   return (
-    <>
+    <div className="bg-bgGreen min-h-screen">
       <NavBar />
-      <div className="container px-4">
-        <div className="flex flex-col justify-start items-center gap-4">
-          <div>
-            <Link to="anne">
-              <img className="w-[200px] h-[200px] bg-green-500" />
-              <p>Anne Therapist</p>
-              <p>
-                Description Lorem ipsum dolor, sit amet consectetur adipisicing
-                elit. Ut doloremque, laudantium nihil cumque recusandae
-                exercitationem quisquam nam illo dolor quidem corrupti
-                architecto magni repellendus necessitatibus officia, quam
-                aliquid? Accusantium, suscipit. Lorem ipsum, dolor sit amet
-                consectetur adipisicing elit. Laudantium assumenda id dicta vel
-                ab eius, doloremque illo inventore, odit excepturi autem earum
-                maiores itaque, minus accusantium magni sed quasi enim. lore.
-              </p>
+      <div className="container px-4 lg:px-12 max-w-[1280px]">
+        <h2 className="mb-10 text-5xl md:text-7xl xl:text-8xl text-center font-bold font-heading tracking-px-n leading-none text-secGreen">
+          Our doctors
+        </h2>
+        <div className="pb-10 grid grid-cols-1 grid-rows-5 lg:grid-cols-3 lg:grid-rows-2 gap-8 max-w-[1280px] sm:grid-cols-2">
+          {doctors.map((doctor) => (
+            <Link to={doctor.link} className="group">
+              <div className="w-full flex flex-col shadow-sm bg-opacity-40 hover:shadow-2xl duration-150 hover:cursor-pointer">
+                <div className="w-full relative">
+                  <img
+                    className="opacity-90 bg-cover rounded-md"
+                    src={doctor.image}
+                  />
+                  <div className="absolute top-0 left-0 bg-opacity-25 rounded-md bg-gradient-to-b from-transparent via-transparent to-gray-600 w-full h-full">
+                    <p className="text-2xl font-bold text-blackGreen absolute left-5 top-[78%]">
+                      {doctor.name}
+                    </p>
+                    <p className="text-gray-800 absolute top-[84%] left-5">
+                      {doctor.specialization}
+                    </p>
+                    <p className="text-gray-400 left-5 absolute bottom-5">
+                      more about{" "}
+                      {doctor.link.slice(0, 1).toUpperCase() +
+                        doctor.link.substring(1)}{" "}
+                      ➔
+                      <div className=" h-[1px] bg-gray-400 w-0 group-hover:w-full duration-300"></div>
+                    </p>
+                  </div>
+                </div>
+              </div>
             </Link>
-          </div>
-          <div>
-            <Link to="milton">
-              <img className="w-[200px] h-[200px] bg-green-500" />
-              <p>Milton Murphy</p>
-              <p>
-                Description Lorem ipsum dolor, sit amet consectetur adipisicing
-                elit. Ut doloremque, laudantium nihil cumque recusandae
-                exercitationem quisquam nam illo dolor quidem corrupti
-                architecto magni repellendus necessitatibus officia, quam
-                aliquid? Accusantium, suscipit. Lorem ipsum, dolor sit amet
-                consectetur adipisicing elit. Laudantium assumenda id dicta vel
-                ab eius, doloremque illo inventore, odit excepturi autem earum
-                maiores itaque, minus accusantium magni sed quasi enim. lore.
-              </p>
-            </Link>
-          </div>
-          <div>
-            <Link to="william">
-              <img className="w-[200px] h-[200px] bg-green-500" />
-              <p>William Lens</p>
-              <p>
-                Description Lorem ipsum dolor, sit amet consectetur adipisicing
-                elit. Ut doloremque, laudantium nihil cumque recusandae
-                exercitationem quisquam nam illo dolor quidem corrupti
-                architecto magni repellendus necessitatibus officia, quam
-                aliquid? Accusantium, suscipit. Lorem ipsum, dolor sit amet
-                consectetur adipisicing elit. Laudantium assumenda id dicta vel
-                ab eius, doloremque illo inventore, odit excepturi autem earum
-                maiores itaque, minus accusantium magni sed quasi enim. lore.
-              </p>
-            </Link>
-          </div>
-          <div>
-            <Link to="olivia">
-              <img className="w-[200px] h-[200px] bg-green-500" />
-              <p>Olivia Archer</p>
-              <p>
-                Description Lorem ipsum dolor, sit amet consectetur adipisicing
-                elit. Ut doloremque, laudantium nihil cumque recusandae
-                exercitationem quisquam nam illo dolor quidem corrupti
-                architecto magni repellendus necessitatibus officia, quam
-                aliquid? Accusantium, suscipit. Lorem ipsum, dolor sit amet
-                consectetur adipisicing elit. Laudantium assumenda id dicta vel
-                ab eius, doloremque illo inventore, odit excepturi autem earum
-                maiores itaque, minus accusantium magni sed quasi enim. lore.
-              </p>
-            </Link>
-          </div>
-          <div>
-            <Link to="amanda">
-              <img className="w-[200px] h-[200px] bg-green-500" />
-              <p>Amanda Bright</p>
-              <p>
-                Description Lorem ipsum dolor, sit amet consectetur adipisicing
-                elit. Ut doloremque, laudantium nihil cumque recusandae
-                exercitationem quisquam nam illo dolor quidem corrupti
-                architecto magni repellendus necessitatibus officia, quam
-                aliquid? Accusantium, suscipit. Lorem ipsum, dolor sit amet
-                consectetur adipisicing elit. Laudantium assumenda id dicta vel
-                ab eius, doloremque illo inventore, odit excepturi autem earum
-                maiores itaque, minus accusantium magni sed quasi enim. lore.
-              </p>
-            </Link>
-          </div>
+          ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,15 +1,27 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useInView } from "react-intersection-observer";
 import "./NavBar.scss";
 
-const NavBar = (props) => {
-  const { display } = props;
+const NavBar = ({ bg }) => {
   const [menuVisibility, setMenuVisibility] = useState(
     "top-[-100%] right-[-100%]"
   );
   const [bgMenuOpacity, setbgMenuOpacity] = useState("h-[0%]");
   const [closeButtonOpacity, setCloseButtonOpacity] = useState("opacity-0");
+
+  const { ref, inView } = useInView({
+    threshold: 0,
+    delay: 100,
+  });
+
+  const handleClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   const openMenu = () => {
     setMenuVisibility("top-0 right-0 cubic-bezier(.19,.75,.85,.51)");
@@ -27,24 +39,28 @@ const NavBar = (props) => {
     }, 200);
   };
 
+  const [goUp, setGoUp] = useState("hidden");
+  useEffect(() => {
+    inView === true ? setGoUp("hidden") : setGoUp("visible");
+  }, [inView]);
+
   const role = useSelector((state) => state.user.role);
 
   return (
     <div
-      className={`${display} w-screen px-0 lg:px-12 absolute top-0 left-0 h-[75px] lg:h-[90px] z-20`}
+      ref={ref}
+      className={`w-screen px-0 lg:px-12 h-[75px] lg:h-[90px] z-20 ${
+        bg === "#adc6af" ? "bg-[#adc6af]" : "bg-bgGreen"
+      }`}
     >
       <div className="px-4 lg:px-0 flex justify-between items-center h-full">
         <div className="w-auto h-11 flex justify-center align-center">
           <Link to={"/"}>
-            <img
-              src="src/assets/logo/logo.png"
-              alt="clerks"
-              className="w-auto h-full"
-            />
+            <img src="/assets/logo/logo.png" className="w-auto h-full" />
           </Link>
         </div>
         <div className="flex gap-8">
-          <div className="profile w-10 h-10 lg:w-12 lg:h-12 border border-secGreen flex justify-center items-center text-secGreen">
+          <div className="profile z-10 w-10 h-10 lg:w-12 lg:h-12 border border-secGreen flex justify-center items-center text-secGreen">
             <Link
               to={role != null ? "/profile" : "/signup"}
               className="w-full h-full flex justify-center items-center bg-bgGreen"
@@ -87,7 +103,7 @@ const NavBar = (props) => {
             </Link>
           </div>
           <div
-            className="w-10 h-10 lg:h-12 lg:w-[6.5rem] burger-menu hover:cursor-pointer lg:flex"
+            className="z-20 w-10 h-10 lg:h-12 lg:w-[6.5rem] burger-menu hover:cursor-pointer lg:flex"
             onClick={openMenu}
           >
             <div className="hidden lg:px-2 lg:bg-bgGreen lg:border lg:border-secGreen lg:border-r-0 text-secGreen lg:text-lg lg:flex lg:justify-center lg:items-center">
@@ -197,6 +213,30 @@ const NavBar = (props) => {
         className={`fixed bottom-0 right-0 ${bgMenuOpacity} w-[100vw] backdrop-blur-sm duration-300 z-[18]`}
         onClick={closeMenu}
       ></div>
+      <div
+        onClick={handleClick}
+        className={`${goUp} fixed arrow-up w-10 h-10 z-[15] right-7 bottom-7 lg:bottom-10 lg:right-10`}
+      >
+        <div className="bg-bgGreen w-10 h-10 z-[100] border border-secGreen">
+          <svg
+            fill="#74bb8f"
+            width="40px"
+            height="40px"
+            viewBox="-480 -480 2880.00 2880.00"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-10 h-10 z-10"
+          >
+            <g strokeWidth="0"></g>
+            <g strokeLinecap="round" strokeLinejoin="round"></g>
+            <g>
+              <path
+                d="M960.406 0 345 615.176l81.364 81.366L902.83 220.075V1920h114.922V220.075l476.466 476.467 81.366-81.366z"
+                fillRule="evenodd"
+              ></path>
+            </g>
+          </svg>
+        </div>
+      </div>
       <Outlet />
     </div>
   );
