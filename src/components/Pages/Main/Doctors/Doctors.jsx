@@ -49,12 +49,15 @@ const Doctors = () => {
           >
             {doctors.map((doctor) => {
               return (
-                <div className="h-[500px] w-[375px] bg-secGreen bg-opacity-10">
+                <div className="h-[500px] w-[375px] bg-secGreen bg-opacity-10 rounded-r-sm">
                   <div
                     className="flex justify-start absolute top-0 h-[500px]"
                     key={doctor.id}
                   >
-                    <img src={doctor.image} className="h-[500px] w-[375px]" />
+                    <img
+                      src={doctor.image}
+                      className="h-[500px] w-[375px] rounded-l-sm"
+                    />
                     <div className="w-[375px] px-6 py-10 flex flex-col justify-start items-center">
                       <p className="text-2xl font-bold text-blackGreen">
                         {doctor.name}

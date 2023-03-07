@@ -39,12 +39,10 @@ const Testimonials = () => {
                       <div className="text-[100px] absolute -top-3 left-3 opacity-10 select-none">
                         🙷
                       </div>
-                      <p className="text-blackGreen text-[16px]">
-                        {review.text}
-                      </p>
+                      <p className="text-gray-500 text-[16px]">{review.text}</p>
                       <div className="flex items-center mt-4 space-x-4">
                         <img
-                          src="src/assets/users/user-icon.svg"
+                          src="/assets/users/user-icon.svg"
                           alt="profile"
                           className="w-10 h-10"
                         />
@@ -66,10 +64,10 @@ const Testimonials = () => {
                       <div className="text-[100px] absolute -top-3 left-3 opacity-10 select-none">
                         🙷
                       </div>
-                      <p>{review.text}</p>
+                      <p className="text-gray-500">{review.text}</p>
                       <div className="flex items-center mt-4 space-x-4">
                         <img
-                          src="src/assets/users/user-icon.svg"
+                          src="/assets/users/user-icon.svg"
                           alt="profile"
                           className="w-10 h-10"
                         />

@@ -1,6 +1,7 @@
 .burger-menu::before,
 .menu-burger::before,
-.profile::before {
+.profile::before,
+.arrow-up::before {
   content: "";
   position: absolute;
   margin-top: 2px;
@@ -20,6 +21,7 @@
 .active {
   color: #84d4a3;
 }
+
 .active:before {
   content: "· ";
 }

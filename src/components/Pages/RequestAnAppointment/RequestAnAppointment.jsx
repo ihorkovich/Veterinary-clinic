@@ -86,10 +86,6 @@ const RequestAnAppointment = () => {
     getUser();
   }, []);
 
-  console.log(user);
-  // console.log(userF);
-  console.log(userL);
-
   const handleFormSubmit = async () => {
     if (user.made === false) {
       const customID = uuid();
@@ -127,11 +123,11 @@ const RequestAnAppointment = () => {
   };
 
   return (
-    <div className="bg-bgGreen">
+    <div className="bg-bgGreen min-h-screen">
       <NavBar />
-      <div className="min-h-screen flex flex-col items-center gap-5">
+      <div className="flex flex-col items-center gap-5">
         {userL.id === null ? (
-          <div className="flex flex-col justify-center items-center h-screen">
+          <div className="flex flex-col justify-center items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <p className="text-4xl font-bold text-secGreen text-center max-w-[590px]">
               Please register to be able to make an appointment to a doctor
             </p>
@@ -144,7 +140,7 @@ const RequestAnAppointment = () => {
             </div>
           </div>
         ) : user.made === true ? (
-          <div className="flex flex-col justify-center items-center h-screen">
+          <div className="flex flex-col justify-center items-center">
             <p className="text-4xl font-bold text-secGreen text-center max-w-[590px]">
               You have already made an appointment
             </p>

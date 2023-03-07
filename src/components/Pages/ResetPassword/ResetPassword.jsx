@@ -65,9 +65,9 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="bg-bgGreen min-h-screen h-auto flex justify-center items-center">
+    <div className="bg-bgGreen min-h-screen h-auto flex flex-col">
       <NavBar />
-      <div className="min-h-full bg-bgGreen px-4 flex flex-col justify-center">
+      <div className="min-h-full px-4 md:px-0 bg-bgGreen flex flex-col justify-center max-w-[400px] mx-auto md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
         <h1 className="text-4xl font-bold text-secGreen my-2 text-center">
           Forgot your password?
         </h1>
@@ -76,9 +76,9 @@ const ResetPassword = () => {
         </p>
         <form
           onSubmit={handleResetPassword}
-          className="sign-in-form mt-10 w-full rounded-sm flex flex-col flex-start gap-3 max-w-[400px]"
+          className="sign-in-form mt-10 w-full rounded-sm flex flex-col flex-start gap-3"
         >
-          <div className="form-field-auth mt-2 h-[50px]">
+          <div className="form-field-auth h-[50px]">
             <input
               ref={inputRef}
               type="email"
@@ -92,7 +92,7 @@ const ResetPassword = () => {
           </div>
           <button
             type="submit"
-            className="rounded-sm text-lg mt-8 border-2 w-full py-3 bg-secGreen text-bgGreen border-secGreen flex justify-center items-center font-bold "
+            className="h-[50px] rounded-sm text-lg border-2 w-full py-3 bg-secGreen text-bgGreen border-secGreen flex justify-center items-center font-bold "
           >
             Reset
           </button>

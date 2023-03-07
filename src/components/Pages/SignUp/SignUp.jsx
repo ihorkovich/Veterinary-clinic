@@ -112,8 +112,8 @@ const SignUp = () => {
   return (
     <div className="bg-bgGreen min-h-screen">
       <NavBar />
-      <div className="bg-bgGreen flex flex-col justify-center items-center py-[75px]">
-        <p className="text-4xl font-bold text-secGreen px-4">
+      <div className="bg-bgGreen mx-auto max-w-[1280px] flex flex-col justify-center">
+        <p className="text-4xl font-bold text-secGreen px-4 text-center">
           Create an account
         </p>
         <p className="px-4 text-gray-500 text-center mt-2">
@@ -121,7 +121,7 @@ const SignUp = () => {
         </p>
         <form
           onSubmit={handleSubmit(signUp)}
-          className="w-full px-4 flex flex-col gap-3 mt-8 max-w-[400px]"
+          className="w-full px-4 flex flex-col gap-3 mt-8 mx-auto max-w-[400px]"
         >
           <div className="form-field-auth h-[50px]">
             <input
