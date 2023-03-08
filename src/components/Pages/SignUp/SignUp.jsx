@@ -112,7 +112,7 @@ const SignUp = () => {
   return (
     <div className="bg-bgGreen min-h-screen">
       <NavBar />
-      <div className="bg-bgGreen mx-auto max-w-[1280px] flex flex-col justify-center">
+      <div className="bg-bgGreen mx-auto max-w-[1280px] flex flex-col justify-center pb-5">
         <p className="text-4xl font-bold text-secGreen px-4 text-center">
           Create an account
         </p>
