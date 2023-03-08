@@ -24,29 +24,25 @@ const Appointments = () => {
   }, []);
 
   return (
-    <div>
+    <div className="bg-bgGreen min-h-screen">
       <NavBar />
-      <h1 className="text-3xl font-bold text-center mt-[140px]">
-        APPOINTMENTS
-      </h1>
+      <h2 className="mb-10 text-5xl md:text-7xl xl:text-8xl text-center font-bold font-heading tracking-px-n leading-none text-secGreen">
+        Appointments
+      </h2>
       <div>
-        <ul className="w-full px-5 h-auto border-2">
+        <ul className="w-full px-5 h-auto flex flex-col gap-5 max-w-[500px] mx-auto">
           {appointments.map((appoint) => {
             return (
-              <Link to={`/appointments/${appoint.id}`}>
-                <li className="w-full border-black border-2">
-                  <div className="h-32 text-md font-bold w-full flex justify-between">
-                    {appoint.name} requested an appointment. {appoint.pet_name}(
-                    {appoint.pet_species}). For when: {appoint.date}
-                    <p>
-                      Additional comment:{" "}
-                      {appoint.comment === ""
-                        ? "No additional comments"
-                        : appoint.comment}
-                    </p>
-                  </div>
-                </li>
-              </Link>
+              <li className="w-full border-2 border-gray-300 shadow-lg rounded-md bg-[#f2ffe2de]">
+                <div className="h-32 text-md font-bold w-full flex justify-center text-blackGreen items-center gap-5 flex-col">
+                  {appoint.name} requested an appointment for: {appoint.date}
+                  <Link to={`/appointments/${appoint.id}`}>
+                    <button className="px-4 py-2 rounded-md underline">
+                      See detailed information {"->"}
+                    </button>
+                  </Link>
+                </div>
+              </li>
             );
           })}
         </ul>

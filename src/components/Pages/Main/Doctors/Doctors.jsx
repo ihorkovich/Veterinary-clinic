@@ -22,7 +22,7 @@ const Doctors = () => {
           effect={"cards"}
           grabCursor={true}
           modules={[EffectCards]}
-          className="px-16 w-full sm:w-4/6 sm:max-w-4/6 md:w-4/6 md:max-w-[450px] md:px-16 ml:hidden"
+          className="px-10 xsm:px-16 w-full sm:w-4/6 sm:max-w-4/6 md:max-w-[450px] md:px-16 ml:hidden"
         >
           {doctors.map((doctor) => (
             <div className="relative">

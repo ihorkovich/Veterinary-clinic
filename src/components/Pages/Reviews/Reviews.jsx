@@ -17,6 +17,7 @@ const Reviews = () => {
         );
         const data = allReviews.filter((doc) => doc.approved === true);
         setReviews(data);
+        console.log(reviews);
       } catch (error) {
         alert(error);
       }
@@ -24,23 +25,25 @@ const Reviews = () => {
   }, []);
 
   return (
-    <div>
+    <div className="bg-bgGreen min-h-screen">
       <NavBar />
-      <h1 className="mt-[200px] text-4xl font-bold text-center">REVIEWS</h1>
-      <div className="border-2 border-black h-96 pt-[200px]">
-        <ul>
-          {reviews.map((review) => {
-            return (
-              <li
-                key={Math.random()}
-                className="w-[400px] p-4 h-30px flex justify-between items-center border-2 border-black"
-              >
-                <div>{review.from}:</div>
-                <div>{review.text}</div>
-              </li>
-            );
-          })}
-        </ul>
+      <h2 class="mb-10 text-5xl md:text-7xl xl:text-8xl text-center font-bold font-heading tracking-px-n leading-none text-secGreen">
+        Reviews
+      </h2>
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 px-4 lg:grid-cols-3 mx-auto max-w-[1280px] pb-5">
+        {reviews.map((review) => {
+          return (
+            <div
+              key={`${review.from}${review.text.slice(-10)}`}
+              className="w-full p-3 bg-[#f2ffe2de] h-30px flex flex-col justify-start auto-rows-min items-start gap-4 border-2 rounded-md border-gray-300 shadow-lg"
+            >
+              <div className="text-xl font-bold text-blckGreen">
+                {review.from}:
+              </div>
+              <div>{review.text}</div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

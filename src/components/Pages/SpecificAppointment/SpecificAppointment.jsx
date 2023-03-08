@@ -27,19 +27,44 @@ const SpecificAppointment = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-bgGreen">
       <NavBar />
-      <div className="mt-[100px] border-2 border-red-500 p-10 flex flex-col justify-start items-center gap-4">
-        <h1>Detailed information about appointment💖</h1>
-        <br />
-        <div>Name: {appointment?.name}</div>
-        <div>Surname: {appointment?.surname}</div>
-        <div>Email: {appointment?.email}</div>
-        <div>Appointment was made for: {appointment?.date}</div>
-        <div>Pet Name: {appointment?.pet_name}</div>
-        <div>Pet Species: {appointment?.pet_species}</div>
-        <div>Service: {appointment?.service}</div>
-        <div>Comment: {appointment?.comment}</div>
+      <h2 class="mb-10 text-5xl md:text-7xl xl:text-8xl text-center font-bold font-heading tracking-px-n leading-none text-secGreen">
+        {appointment?.name}'s Appointment
+      </h2>
+      <div className="w-full border-2 rounded-md border-gray-300 shadow-lg max-w-[500px] mx-auto p-4 flex flex-col justify-start items-start gap-4">
+        <div>
+          <span className="font-bold text-blackGreen">Name: </span>
+          {appointment?.name}
+        </div>
+        <div>
+          <span className="font-bold text-blackGreen">Surname: </span>{" "}
+          {appointment?.surname}
+        </div>
+        <div>
+          <span className="font-bold text-blackGreen">Email: </span>{" "}
+          {appointment?.email}
+        </div>
+        <div>
+          <span className="font-bold text-blackGreen">Reception time: </span>{" "}
+          {appointment?.date}
+        </div>
+        <div>
+          <span className="font-bold text-blackGreen">Pet Name: </span>{" "}
+          {appointment?.pet_name}
+        </div>
+        <div>
+          <span className="font-bold text-blackGreen">Pet Species: </span>{" "}
+          {appointment?.pet_species}
+        </div>
+        <div>
+          <span className="font-bold text-blackGreen">Service: </span>{" "}
+          {appointment?.service}
+        </div>
+        <div>
+          <span className="font-bold text-blackGreen">Comment: </span>{" "}
+          {appointment?.comment}
+        </div>
       </div>
     </div>
   );

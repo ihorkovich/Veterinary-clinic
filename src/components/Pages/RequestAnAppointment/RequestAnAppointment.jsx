@@ -107,6 +107,13 @@ const RequestAnAppointment = () => {
         await updateSpecificDocumentInCollection("users", user.id, {
           made: true,
         });
+        await addDocumentToSubcollection(
+          "users",
+          user.id,
+          "appointment",
+          "main",
+          data
+        );
         setModalActive(true);
         setTitle("You have successfully made an appointment!");
         setButtonLink("/");
@@ -153,8 +160,8 @@ const RequestAnAppointment = () => {
             </div>
           </div>
         ) : (
-          <div className="pt-[75px] pb-[50px]">
-            <p className="text-center text-3xl text-secGreen font-bold">
+          <div className="pb-[50px]">
+            <p className="text-center text-3xl text-secGreen font-bold px-4">
               Request An Appointment
             </p>
             <form

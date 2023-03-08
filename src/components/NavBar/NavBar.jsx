@@ -178,9 +178,11 @@ const NavBar = ({ bg }) => {
               </li>
             </ul>
           ) : role === "doctor" ? (
-            <ul className="font-bold text-[42px] lg:text-[50px] flex flex-col items-start text-secGreen leading-[50px] scale-y-110 my-14 ml-4 md:ml-7 md:my-16 md:leading-[55px]">
-              <li className="hover:text-[#84d4a3] duration-150">
-                <NavLink to="/appointments">APPOINTMENTS</NavLink>
+            <ul className="font-bold text-[42px] lg:text-[50px] pr-4 flex flex-col items-start text-secGreen leading-[50px] scale-y-110 my-14 ml-4 md:ml-7 md:my-16 md:leading-[55px]">
+              <li className="hover:text-[#84d4a3] duration-150 w-full whitespace-normal">
+                <NavLink to="/appointments">
+                  APPOINT<span className="xsm:hidden">-</span>MENTS
+                </NavLink>
               </li>
               <li className="hover:text-[#84d4a3] duration-150">
                 <NavLink to="/reviews">REVIEWS</NavLink>

@@ -21,7 +21,6 @@ module.exports = {
     fontFamily: {
       Raleway: ["Raleway", "sans-serif"],
     },
-
     aspectRatio: {
       "16/13.6": "16 / 13.6",
       "3/4": "3/4",

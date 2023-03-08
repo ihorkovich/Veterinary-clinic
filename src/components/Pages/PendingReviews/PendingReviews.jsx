@@ -17,7 +17,7 @@ const PendingReviews = () => {
       try {
         const reviewsData = await getAllDocumentsFromCollection("reviews");
         const allReviews = reviewsData.filter(
-          (review) => review.approved === true
+          (review) => review.approved === false
         );
         setReviews(allReviews);
       } catch (error) {
