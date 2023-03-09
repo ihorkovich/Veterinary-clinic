@@ -25,19 +25,19 @@ const Reviews = () => {
   }, []);
 
   return (
-    <div className="bg-bgGreen min-h-screen">
+    <div className="min-h-screen bg-bgGreen">
       <NavBar />
-      <h2 class="mb-10 text-5xl md:text-7xl xl:text-8xl text-center font-bold font-heading tracking-px-n leading-none text-secGreen">
+      <h2 class="font-heading tracking-px-n mb-10 text-center text-5xl font-bold leading-none text-secGreen md:text-7xl xl:text-8xl">
         Reviews
       </h2>
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 px-4 lg:grid-cols-3 mx-auto max-w-[1280px] pb-5">
+      <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-5 px-4 pb-5 sm:grid-cols-2 lg:grid-cols-3">
         {reviews.map((review) => {
           return (
             <div
               key={`${review.from}${review.text.slice(-10)}`}
-              className="w-full p-3 bg-[#f2ffe2de] h-30px flex flex-col justify-start auto-rows-min items-start gap-4 border-2 rounded-md border-gray-300 shadow-lg"
+              className="h-30px flex w-full auto-rows-min flex-col items-start justify-start gap-4 rounded-md border-2 border-gray-300 bg-[#f2ffe2de] p-3 shadow-lg"
             >
-              <div className="text-xl font-bold text-blckGreen">
+              <div className="text-blckGreen text-xl font-bold">
                 {review.from}:
               </div>
               <div>{review.text}</div>

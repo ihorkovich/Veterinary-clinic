@@ -11,25 +11,25 @@ const QNA = () => {
   };
 
   return (
-    <div className="px-4 mt-20 bg-bgGreen max-w-[1280px] mx-auto">
-      <h2 className="px-4 text-3xl text-blackGreen font-bold text-center my-6">
+    <div className="mx-auto mt-20 max-w-[1280px] bg-bgGreen px-4">
+      <h2 className="my-6 px-4 text-center text-3xl font-bold text-blackGreen">
         Pet Care FAQs
       </h2>
       <div className="grid grid-cols-1 gap-3 ">
         {data.map((qna, i) => (
           <div
             key={qna.id}
-            className="flex flex-col border border-blackGreen bg-bgGreen rounded-sm"
+            className="flex flex-col rounded-sm border border-blackGreen bg-bgGreen"
           >
             <div
-              className="flex justify-between items-center p-3 hover:cursor-pointer"
+              className="flex items-center justify-between p-3 hover:cursor-pointer"
               onClick={() => answersHandler(i)}
             >
-              <h2 className="font-semibold text-blackGreen text-sm">
+              <h2 className="text-sm font-semibold text-blackGreen">
                 {qna.question}
               </h2>
               <span
-                className={`h-6 duration-[0.4s] select-none ${
+                className={`h-6 select-none duration-[0.4s] ${
                   selected == i ? "rotate-180" : ""
                 }`}
               >

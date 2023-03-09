@@ -4,20 +4,20 @@ const ContactInfo = () => {
   return (
     <div classNameName="min-h-screen bg-bgGreen">
       <NavBar />
-      <section className="relative pt-12 pb-24 overflow-hidden bg-bgGreen">
-        <div className="relative z-10 container px-4 mx-auto">
-          <h2 className="mb-5 text-5xl md:text-7xl xl:text-8xl text-center font-bold font-heading tracking-px-n leading-none text-secGreen">
+      <section className="relative overflow-hidden bg-bgGreen pt-12 pb-24">
+        <div className="container relative z-10 mx-auto px-4">
+          <h2 className="font-heading tracking-px-n mb-5 text-center text-5xl font-bold leading-none text-secGreen md:text-7xl xl:text-8xl">
             Get connected
           </h2>
-          <p className="mb-20 text-lg text-gray-500 text-center font-medium leading-normal md:max-w-lg mx-auto">
+          <p className="mx-auto mb-20 text-center text-lg font-medium leading-normal text-gray-500 md:max-w-lg">
             Stay connected with us and give your pets the quality care they
             deserve
           </p>
-          <div className="flex flex-wrap -m-3">
-            <div className="w-full md:w-1/3 p-3">
-              <div className="p-11 h-full text-center shadow-md bg-bgGreen bg-opacity-90 border border-blueGray-100 rounded-xl shadow-11xl">
-                <div className="mb-6 relative mx-auto w-16 h-16 bg-secGreen rounded-full">
-                  <div className="absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2">
+          <div className="-m-3 flex flex-wrap">
+            <div className="w-full p-3 md:w-1/3">
+              <div className="border-blueGray-100 shadow-11xl h-full rounded-xl border bg-bgGreen bg-opacity-90 p-11 text-center shadow-md">
+                <div className="relative mx-auto mb-6 h-16 w-16 rounded-full bg-secGreen">
+                  <div className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 transform">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       enable-background="new 0 0 24 24"
@@ -34,16 +34,16 @@ const ContactInfo = () => {
                     </svg>
                   </div>
                 </div>
-                <h3 className="mb-3 text-xl font-bold font-heading leading-snug">
+                <h3 className="font-heading mb-3 text-xl font-bold leading-snug">
                   Work Schedule
                 </h3>
                 <p className="font-medium leading-relaxed">We are open 24/7</p>
               </div>
             </div>
-            <div className="w-full md:w-1/3 p-3">
-              <div className="p-11 h-full text-center bg-bgGreen shadow-md bg-opacity-90 border border-blueGray-100 rounded-xl shadow-11xl">
-                <div className="mb-6 relative mx-auto w-16 h-16 bg-secGreen border border-blueGray-200 rounded-full">
-                  <div className="absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2">
+            <div className="w-full p-3 md:w-1/3">
+              <div className="border-blueGray-100 shadow-11xl h-full rounded-xl border bg-bgGreen bg-opacity-90 p-11 text-center shadow-md">
+                <div className="border-blueGray-200 relative mx-auto mb-6 h-16 w-16 rounded-full border bg-secGreen">
+                  <div className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 transform">
                     <svg
                       width="32"
                       height="33"
@@ -61,7 +61,7 @@ const ContactInfo = () => {
                     </svg>
                   </div>
                 </div>
-                <h3 className="mb-3 text-xl font-bold font-heading leading-snug">
+                <h3 className="font-heading mb-3 text-xl font-bold leading-snug">
                   Call Us
                 </h3>
                 <p className="font-medium leading-relaxed">
@@ -72,10 +72,10 @@ const ContactInfo = () => {
                 </p>
               </div>
             </div>
-            <div className="w-full md:w-1/3 p-3">
-              <div className="p-11 h-full text-center bg-bgGreen shadow-md bg-opacity-90 border border-blueGray-100 rounded-xl shadow-11xl">
-                <div className="mb-6 relative mx-auto w-16 h-16 bg-secGreen border border-blueGray-200 rounded-full">
-                  <div className="absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2">
+            <div className="w-full p-3 md:w-1/3">
+              <div className="border-blueGray-100 shadow-11xl h-full rounded-xl border bg-bgGreen bg-opacity-90 p-11 text-center shadow-md">
+                <div className="border-blueGray-200 relative mx-auto mb-6 h-16 w-16 rounded-full border bg-secGreen">
+                  <div className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 transform">
                     <svg
                       width="32"
                       height="33"
@@ -100,10 +100,10 @@ const ContactInfo = () => {
                     </svg>
                   </div>
                 </div>
-                <h3 className="mb-3 text-xl font-bold font-heading leading-snug">
+                <h3 className="font-heading mb-3 text-xl font-bold leading-snug">
                   Address
                 </h3>
-                <p className="font-medium max-w-xs mx-auto leading-relaxed">
+                <p className="mx-auto max-w-xs font-medium leading-relaxed">
                   Lviv, Ukraine
                 </p>
               </div>

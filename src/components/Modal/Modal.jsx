@@ -24,21 +24,21 @@ const Modal = ({
     <div
       className={`${
         active ? "" : "hidden"
-      } fixed top-0 left-0 flex items-center w-screen h-screen z-50`}
+      } fixed top-0 left-0 z-50 flex h-screen w-screen items-center`}
     >
       <Link to={`${linkTo ? linkTo : ""}`} className="hover:cursor-default">
         <div
-          className={`${closing} backdrop-blur-sm absolute top-0 left-0 w-screen h-screen modal bg-gray-700 bg-opacity-20`}
+          className={`${closing} modal absolute top-0 left-0 h-screen w-screen bg-gray-700 bg-opacity-20 backdrop-blur-sm`}
           onClick={closeModal}
         ></div>
       </Link>
       <div
-        className={`${closing} sm:w-[600px] sm:mx-auto bg-secGreen opacity-85 w-full mx-4 h-auto min-h-[190px] rounded-sm flex flex-col justify-start items-center relative modal`}
+        className={`${closing} opacity-85 modal relative mx-4 flex h-auto min-h-[190px] w-full flex-col items-center justify-start rounded-sm bg-secGreen sm:mx-auto sm:w-[600px]`}
       >
-        <div className="w-full pt-3 px-3 flex justify-end sm:h-0 sm:absolute">
+        <div className="flex w-full justify-end px-3 pt-3 sm:absolute sm:h-0">
           <Link to={`${linkTo ? linkTo : ""}`}>
             <div
-              className="sm:absolute sm:right-3 sm:top-3 w-10 h-10 border border-bgGreen hover:cursor-pointer rounded-sm"
+              className="h-10 w-10 rounded-sm border border-bgGreen hover:cursor-pointer sm:absolute sm:right-3 sm:top-3"
               onClick={closeModal}
             >
               <svg
@@ -55,14 +55,14 @@ const Modal = ({
             </div>
           </Link>
         </div>
-        <div className="my-4 flex flex-col justify-start items-center">
-          <p className="text-2xl font-bold text-bgGreen text-center">{title}</p>
-          <p className="px-6 text-bgGreen text-center mt-7">{message}</p>
+        <div className="my-4 flex flex-col items-center justify-start">
+          <p className="text-center text-2xl font-bold text-bgGreen">{title}</p>
+          <p className="mt-7 px-6 text-center text-bgGreen">{message}</p>
           {button === true ? (
             <Link to={`${linkTo ? linkTo : ""}`} className="mt-8">
               <button
                 onClick={closeModal}
-                className="text-secGreen rounded-sm w-[78px] h-[40px] bg-bgGreen border-[1.5px] border-bgGreen font-bold"
+                className="h-[40px] w-[78px] rounded-sm border-[1.5px] border-bgGreen bg-bgGreen font-bold text-secGreen"
               >
                 {buttonText ? buttonText : ""}
               </button>

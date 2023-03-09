@@ -4,12 +4,12 @@ const AboutUs = () => {
   return (
     <div className="bg-bgGreen md:min-h-screen">
       <NavBar />
-      <h2 class="mb-10 text-5xl md:text-7xl xl:text-8xl text-center font-bold font-heading tracking-px-n leading-none text-secGreen">
+      <h2 class="font-heading tracking-px-n mb-10 text-center text-5xl font-bold leading-none text-secGreen md:text-7xl xl:text-8xl">
         About Us
       </h2>
       <div className="md:container">
-        <div className="mx-auto flex flex-col-reverse md:flex-row md:gap-10 items-center md:items-start max-w-[1280px] md:mt-10 md:pb-10">
-          <div className="mt-5 container px-4">
+        <div className="mx-auto flex max-w-[1280px] flex-col-reverse items-center md:mt-10 md:flex-row md:items-start md:gap-10 md:pb-10">
+          <div className="container mt-5 px-4">
             <p className="text-justify text-gray-500 md:text-left lg:text-lg">
               <span className="font-bold">&#9642; Welcome</span> to our
               veterinary clinic, where the health and well-being of your furry
@@ -26,7 +26,7 @@ const AboutUs = () => {
               relationships with all of our clients
             </p>
           </div>
-          <div className="w-full px-4 container">
+          <div className="container w-full px-4">
             <img
               src="/assets/about-us/dog.jpg"
               alt="dog"

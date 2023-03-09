@@ -29,10 +29,10 @@ const SpecificAppointment = () => {
   return (
     <div className="min-h-screen bg-bgGreen">
       <NavBar />
-      <h2 class="mb-10 text-5xl md:text-7xl xl:text-8xl text-center font-bold font-heading tracking-px-n leading-none text-secGreen">
+      <h2 class="font-heading tracking-px-n mb-10 text-center text-5xl font-bold leading-none text-secGreen md:text-7xl xl:text-8xl">
         {appointment?.name}'s Appointment
       </h2>
-      <div className="w-full border-2 rounded-md border-gray-300 shadow-lg max-w-[500px] mx-auto p-4 flex flex-col justify-start items-start gap-4">
+      <div className="mx-auto flex w-full max-w-[500px] flex-col items-start justify-start gap-4 rounded-md border-2 border-gray-300 p-4 shadow-lg">
         <div>
           <span className="font-bold text-blackGreen">Name: </span>
           {appointment?.name}

@@ -28,35 +28,48 @@ const UserList = () => {
   };
 
   return (
-    <>
+    <div className="min-h-screen bg-bgGreen">
       <NavBar />
-      <div className="pt-[100px] h-auto w-full">
-        <ul className="h-96 w-full text-black flex flex-col justify-start items-center gap-5">
+      <h2 class="font-heading tracking-px-n mb-10 text-center text-5xl font-bold leading-none text-secGreen md:text-7xl xl:text-8xl">
+        User list
+      </h2>
+      <div className="mx-auto w-full px-4">
+        <table className="mx-auto w-full max-w-[800px] table-auto">
+          <thead className="grid grid-cols-3 text-xl font-bold text-blackGreen underline">
+            <th className="pl-2 text-left">Name</th>
+            <th className="pl-1 text-left">Ban user</th>
+            <th className="text-left">Delete User</th>
+          </thead>
           {allUsers
             .filter((user) => user.role === "user" && user.banned === false)
             .map((user) => (
-              <li
+              <tr
                 id={`${user.id}`}
                 key={`${user.email}${Date.now()}${Math.random()}`}
-                className="user text-black text-xl font-bold flex justify-between items-center w-full px-4"
+                className="user mx-auto mt-2 grid grid-cols-3 items-center rounded-sm border-y border-gray-300 p-2 text-xl font-bold shadow-sm"
               >
-                <div>
+                <td className="text-left">
                   {user.name} {user.surname}
-                </div>
-                <div>{user.email}</div>
-                <div className="border-2 border-black">
-                  <button onClick={banUser} data-userid={user.id}>
+                </td>
+                <td className="text-left">
+                  <button
+                    onClick={banUser}
+                    data-userid={user.id}
+                    className="duration rounded-sm p-1 duration-200 hover:bg-emerald-400 hover:text-bgGreen"
+                  >
                     Ban User
                   </button>
-                </div>
-                <div className="border-2">
-                  <button>Delete User</button>
-                </div>
-              </li>
+                </td>
+                <td className="text-left">
+                  <button className="rounded-sm p-1 text-blackGreen duration-200 hover:bg-red-400 hover:text-bgGreen">
+                    Delete User
+                  </button>
+                </td>
+              </tr>
             ))}
-        </ul>
+        </table>
       </div>
-    </>
+    </div>
   );
 };
 

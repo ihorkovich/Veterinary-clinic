@@ -73,10 +73,10 @@ const SignIn = () => {
   };
 
   return (
-    <div className="bg-bgGreen min-h-screen">
+    <div className="min-h-screen bg-bgGreen">
       <NavBar />
-      <div className="min-h-full bg-bgGreen flex flex-col justify-center max-w-[400px] mx-auto px-4">
-        <h1 className="text-4xl font-bold text-secGreen my-2 text-center">
+      <div className="mx-auto flex min-h-full max-w-[400px] flex-col justify-center bg-bgGreen px-4">
+        <h1 className="my-2 text-center text-4xl font-bold text-secGreen">
           Welcome Back
         </h1>
         <p className="text-center text-gray-500">
@@ -84,17 +84,17 @@ const SignIn = () => {
         </p>
         <form
           onSubmit={handleSignIn}
-          className="sign-in-form mt-10 w-full rounded-sm flex flex-col flex-start gap-3"
+          className="sign-in-form flex-start mt-10 flex w-full flex-col gap-3 rounded-sm"
         >
           <div className="form-field-auth h-[50px]">
             <input
               type="email"
               name="email"
-              className={`${inputClass} h-[40px] input-auth text-[#74bb8f] px-[7px] text-[17px]`}
+              className={`${inputClass} input-auth h-[40px] px-[7px] text-[17px] text-[#74bb8f]`}
               onChange={handleInputChange}
               required
             />
-            <label className="absolute label-auth text-[17px] w-[64px] bg-bgGreen">
+            <label className="label-auth absolute w-[64px] bg-bgGreen text-[17px]">
               Email
             </label>
           </div>
@@ -102,27 +102,27 @@ const SignIn = () => {
             <input
               type="password"
               name="password"
-              className={`${inputClass} input-auth text-[#74bb8f] px-[7px] text-[17px]`}
+              className={`${inputClass} input-auth px-[7px] text-[17px] text-[#74bb8f]`}
               onChange={handleInputChange}
               required
             />
-            <label className="absolute label-auth text-[17px] bg-bgGreen w-[95px]">
+            <label className="label-auth absolute w-[95px] bg-bgGreen text-[17px]">
               Password
             </label>
           </div>
           <Link to="/reset-password">
-            <p className="w-32 text-sm underline text-gray-500 text-left hover:cursor-pointer -mt-2">
+            <p className="-mt-2 w-32 text-left text-sm text-gray-500 underline hover:cursor-pointer">
               Forgot password?
             </p>
           </Link>
           <button
             type="submit"
-            className="h-[50px] rounded-sm text-lg mt-4 border-2 w-full py-3 bg-secGreen text-bgGreen border-secGreen flex justify-center items-center font-bold "
+            className="mt-4 flex h-[50px] w-full items-center justify-center rounded-sm border-2 border-secGreen bg-secGreen py-3 text-lg font-bold text-bgGreen "
           >
             Sign in
           </button>
         </form>
-        <p className="text-gray-500 text-md mt-3 text-left">
+        <p className="text-md mt-3 text-left text-gray-500">
           Don't have an account?{" "}
           <Link to="/signup">
             <button className="underline">Create</button>

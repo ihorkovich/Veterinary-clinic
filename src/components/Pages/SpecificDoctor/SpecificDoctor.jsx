@@ -101,14 +101,14 @@ const SpecificDoctor = () => {
   return (
     <div className="min-h-screen bg-bgGreen">
       <NavBar />
-      <div className="md:border-b-2 md:border-secGreen flex flex-col justify-start gap-6 md:gap-0 max-w-[1280px] mx-auto px-4 lg:px-12 container md:flex md:flex-row-reverse md:justify-center">
-        <div className="md:flex md:justify-start md:border-secGreen md:border-l-2 md:border-t-2 md:border-r-2">
+      <div className="container mx-auto flex max-w-[1280px] flex-col justify-start gap-6 px-4 md:flex md:flex-row-reverse md:justify-center md:gap-0 md:border-b-2 md:border-secGreen lg:px-12">
+        <div className="md:flex md:justify-start md:border-l-2 md:border-t-2 md:border-r-2 md:border-secGreen">
           <img
-            className="spec-doc-img mx-auto rounded-sm w-full h-[400px] xsm:h-[450px] xsm:w-5/6 sm:h-[450px] object-contain max-w-[380px]"
+            className="spec-doc-img mx-auto h-[400px] w-full max-w-[380px] rounded-sm object-contain xsm:h-[450px] xsm:w-5/6 sm:h-[450px]"
             src={doctor.image}
           />
         </div>
-        <div className="text-textBlack font-bold text-3xl md:flex md:flex-col md:w-1/2 md:p-5 md:justify-end md:items-end md:mb-[17.5px]">
+        <div className="text-textBlack text-3xl font-bold md:mb-[17.5px] md:flex md:w-1/2 md:flex-col md:items-end md:justify-end md:p-5">
           <p className="text-center md:hidden">
             {doctor.name ? doctor.name : ""}
           </p>
@@ -118,43 +118,43 @@ const SpecificDoctor = () => {
           <p className="hidden md:block md:text-4xl lg:text-5xl">
             {doctor.name ? doctor.name.split(" ")[1] : ""}
           </p>
-          <p className="text-base text-center md:text-left font-normal text-gray-500 mt-2 md:text-xl md:mt-2">
+          <p className="mt-2 text-center text-base font-normal text-gray-500 md:mt-2 md:text-left md:text-xl">
             {doctor.specialization}
           </p>
-          <div className="flex justify-center md:justify-start mt-6 md:mt-10">
+          <div className="mt-6 flex justify-center md:mt-10 md:justify-start">
             <Link to="/request-appointment">
-              <button className="p-3 border-2 border-secGreen rounded-sm text-lg text-bgGreen bg-secGreen font-bold max-w-64 hover:text-secGreen hover:bg-bgGreen duration-200">
+              <button className="max-w-64 rounded-sm border-2 border-secGreen bg-secGreen p-3 text-lg font-bold text-bgGreen duration-200 hover:bg-bgGreen hover:text-secGreen">
                 Make an appointment
               </button>
             </Link>
           </div>
         </div>
       </div>
-      <div className="mt-10 md:grid md:grid-cols-2 md:auto-rows-fr md:pb-10 max-w-[1280px] mx-auto">
+      <div className="mx-auto mt-10 max-w-[1280px] md:grid md:auto-rows-fr md:grid-cols-2 md:pb-10">
         <div className="mt-6 px-4 md:w-full">
-          <div className="w-full rounded-sm p-5 border-2 border-secGreen">
-            <p className="text-center text-2xl md:text-3xl font-bold text-blackGreen">
+          <div className="w-full rounded-sm border-2 border-secGreen p-5">
+            <p className="text-center text-2xl font-bold text-blackGreen md:text-3xl">
               About {doctor.name ? doctor.name.split(" ")[0] : ""}
             </p>
-            <p className="text-justify text-gray-500 mt-5">
+            <p className="mt-5 text-justify text-gray-500">
               {doctor.description_1}
             </p>
           </div>
         </div>
         <div className="mt-6 px-4 md:w-full">
-          <div className="w-full rounded-sm p-5 border-2 border-secGreen">
-            <p className="text-center text-2xl md:text-3xl font-bold text-blackGreen">
+          <div className="w-full rounded-sm border-2 border-secGreen p-5">
+            <p className="text-center text-2xl font-bold text-blackGreen md:text-3xl">
               {doctor.name ? doctor.name.split(" ")[0] : ""}'s leisure time
             </p>
-            <p className="text-justify text-gray-500 mt-5">
+            <p className="mt-5 text-justify text-gray-500">
               {doctor.description_2}
             </p>
           </div>
         </div>
       </div>
-      <div className="w-full mt-10 md:mt-0 pb-5 md:pb-10 px-4 max-w-[1280px] mx-auto">
+      <div className="mx-auto mt-10 w-full max-w-[1280px] px-4 pb-5 md:mt-0 md:pb-10">
         <button
-          className="flex justify-between items-center gap-2 p-3 text-secGreen border-secGreen font-bold border-2 rounded-sm hover:bg-secGreen hover:text-bgGreen duration-200"
+          className="flex items-center justify-between gap-2 rounded-sm border-2 border-secGreen p-3 font-bold text-secGreen duration-200 hover:bg-secGreen hover:text-bgGreen"
           onClick={toggleModal}
         >
           leave a review
@@ -180,12 +180,12 @@ const SpecificDoctor = () => {
         </button>
       </div>
       <div
-        className={`${modalVisibilty} z-20 w-screen h-screen fixed top-0 left-0 backdrop-blur-sm flex justify-center items-center`}
+        className={`${modalVisibilty} fixed top-0 left-0 z-20 flex h-screen w-screen items-center justify-center backdrop-blur-sm`}
       >
-        <div className="w-96 p-4 h-72 border-2 bg-[#90b9a0] rounded-sm border-gray-500 flex flex-col justify-start items-center gap-4">
-          <div className="flex justify-end items-center w-full">
+        <div className="flex h-72 w-96 flex-col items-center justify-start gap-4 rounded-sm border-2 border-gray-500 bg-[#90b9a0] p-4">
+          <div className="flex w-full items-center justify-end">
             <div className="absolute left-1/2 -translate-x-1/2">
-              <h1 className="font-bold text-2xl text-bgGreen">
+              <h1 className="text-2xl font-bold text-bgGreen">
                 Leave a review
               </h1>
             </div>
@@ -206,22 +206,22 @@ const SpecificDoctor = () => {
               </svg>
             </button>
           </div>
-          <div className="w-full h-full flex flex-col justify-center items-center">
-            <form className="flex flex-col w-full" onSubmit={sendReview}>
-              <p className="text-blackGreen text-[12px] w-4/5 mx-auto">
+          <div className="flex h-full w-full flex-col items-center justify-center">
+            <form className="flex w-full flex-col" onSubmit={sendReview}>
+              <p className="mx-auto w-4/5 text-[12px] text-blackGreen">
                 Min 30 characters:
               </p>
               <input
                 ref={inputRef}
                 type="input"
-                className="review-input placeholder:text-bgGreen text-bgGreen py-2 mx-auto w-4/5"
+                className="review-input mx-auto w-4/5 py-2 text-bgGreen placeholder:text-bgGreen"
                 placeholder="Type here"
                 minLength={30}
                 onChange={(e) => setReview(e.target.value)}
               />
               <button
                 type="submit"
-                className="mt-5 w-1/2 mx-auto h-12 rounded-sm font-bold border-2 border-bgGreen text-bgGreen text-lg hover:text-[#90b9a0] hover:bg-bgGreen duration-200"
+                className="mx-auto mt-5 h-12 w-1/2 rounded-sm border-2 border-bgGreen text-lg font-bold text-bgGreen duration-200 hover:bg-bgGreen hover:text-[#90b9a0]"
               >
                 Send
               </button>
