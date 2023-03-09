@@ -110,18 +110,18 @@ const SignUp = () => {
   };
 
   return (
-    <div className="bg-bgGreen min-h-screen">
+    <div className="min-h-screen bg-bgGreen">
       <NavBar />
-      <div className="bg-bgGreen mx-auto max-w-[1280px] flex flex-col justify-center pb-5">
-        <p className="text-4xl font-bold text-secGreen px-4 text-center">
+      <div className="mx-auto flex max-w-[1280px] flex-col justify-center bg-bgGreen pb-5">
+        <p className="px-4 text-center text-4xl font-bold text-secGreen">
           Create an account
         </p>
-        <p className="px-4 text-gray-500 text-center mt-2">
+        <p className="mt-2 px-4 text-center text-gray-500">
           Sign up to be able to make an appointments
         </p>
         <form
           onSubmit={handleSubmit(signUp)}
-          className="w-full px-4 flex flex-col gap-3 mt-8 mx-auto max-w-[400px]"
+          className="mx-auto mt-8 flex w-full max-w-[400px] flex-col gap-3 px-4"
         >
           <div className="form-field-auth h-[50px]">
             <input
@@ -129,14 +129,14 @@ const SignUp = () => {
               name="name"
               {...register("name")}
               onChange={handleInputChange}
-              className={`${inputClass} input-auth text-[#74bb8f] px-[7px] text-[17px]`}
+              className={`${inputClass} input-auth px-[7px] text-[17px] text-[#74bb8f]`}
             />
-            <label className="absolute label-auth text-[17px] w-[68px] bg-bgGreen">
+            <label className="label-auth absolute w-[68px] bg-bgGreen text-[17px]">
               Name
             </label>
           </div>
           {errors.name && (
-            <p className="text-red-500 text-[12px] -mt-3">
+            <p className="-mt-3 text-[12px] text-red-500">
               {errors.name.message}
             </p>
           )}
@@ -146,14 +146,14 @@ const SignUp = () => {
               name="surname"
               {...register("surname")}
               onChange={handleInputChange}
-              className={`${inputClass} input-auth text-[#74bb8f] px-[7px] text-[17px]`}
+              className={`${inputClass} input-auth px-[7px] text-[17px] text-[#74bb8f]`}
             />
-            <label className="absolute label-auth text-[17px] w-[92px] bg-bgGreen">
+            <label className="label-auth absolute w-[92px] bg-bgGreen text-[17px]">
               Surname
             </label>
           </div>
           {errors.surname && (
-            <p className="text-red-500 text-[12px] -mt-3">
+            <p className="-mt-3 text-[12px] text-red-500">
               {errors.surname.message}
             </p>
           )}
@@ -163,14 +163,14 @@ const SignUp = () => {
               name="email"
               {...register("email")}
               onChange={handleInputChange}
-              className={`${inputClass} input-auth text-[#74bb8f] px-[7px] text-[17px]`}
+              className={`${inputClass} input-auth px-[7px] text-[17px] text-[#74bb8f]`}
             />
-            <label className="absolute label-auth text-[17px] w-[66px] bg-bgGreen">
+            <label className="label-auth absolute w-[66px] bg-bgGreen text-[17px]">
               Email
             </label>
           </div>
           {errors.email && (
-            <p className="text-red-500 text-[12px] -mt-3">
+            <p className="-mt-3 text-[12px] text-red-500">
               {errors.email.message}
             </p>
           )}
@@ -180,14 +180,14 @@ const SignUp = () => {
               name="password"
               {...register("password")}
               onChange={handleInputChange}
-              className={`${inputClass} input-auth text-[#74bb8f] px-[7px] text-[17px]`}
+              className={`${inputClass} input-auth px-[7px] text-[17px] text-[#74bb8f]`}
             />
-            <label className="absolute label-auth text-[17px] w-[98px] bg-bgGreen">
+            <label className="label-auth absolute w-[98px] bg-bgGreen text-[17px]">
               Password
             </label>
           </div>
           {errors.password && (
-            <p className="text-red-500 text-[12px] -mt-3">
+            <p className="-mt-3 text-[12px] text-red-500">
               {errors.password.message}
             </p>
           )}
@@ -197,20 +197,20 @@ const SignUp = () => {
               name="repeatPassword"
               {...register("repeatPassword")}
               onChange={handleInputChange}
-              className={`${inputClass} input-auth text-[#74bb8f] px-[7px] text-[17px]`}
+              className={`${inputClass} input-auth px-[7px] text-[17px] text-[#74bb8f]`}
             />
-            <label className="absolute label-auth text-[17px] w-[158px] bg-bgGreen">
+            <label className="label-auth absolute w-[158px] bg-bgGreen text-[17px]">
               Repeat password
             </label>
           </div>
           {errors.repeatPassword && (
-            <p className="text-red-500 text-[12px] -mt-3">
+            <p className="-mt-3 text-[12px] text-red-500">
               {errors.repeatPassword.message}
             </p>
           )}
           <button
             type="submit"
-            className=" text-lg mt-8 rounded-sm  w-full py-3 bg-secGreen text-bgGreen flex justify-center items-center font-bold "
+            className=" mt-8 flex w-full  items-center justify-center rounded-sm bg-secGreen py-3 text-lg font-bold text-bgGreen "
           >
             Sign up
           </button>

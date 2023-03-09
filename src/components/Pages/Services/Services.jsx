@@ -5,28 +5,28 @@ import "./Services.scss";
 
 const Services = () => {
   return (
-    <div className="bg-[#adc6af] min-h-screen">
+    <div className="min-h-screen bg-[#adc6af]">
       <NavBar bg={"#adc6af"} />
-      <h2 class="mb-10 text-5xl md:text-7xl xl:text-8xl text-center font-bold font-heading tracking-px-n leading-none text-bgGreen">
+      <h2 class="font-heading tracking-px-n mb-10 text-center text-5xl font-bold leading-none text-bgGreen md:text-7xl xl:text-8xl">
         All services we provide
       </h2>
-      <div className="pb-10 mx-auto grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:grid-rows-2 lg:grid-cols-4 max-w-[1280px]">
+      <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-4 px-4 pb-10 sm:grid-cols-2 sm:grid-rows-2 lg:grid-cols-4">
         {services.map((service) => (
           <Link
             to={`/services/${service.link}`}
             key={service.id}
-            className="w-full group cell hover:shadow-lg hover:-translate-y-2 duration-200"
+            className="cell group w-full duration-200 hover:-translate-y-2 hover:shadow-lg"
           >
-            <div className="duration-200 content border flex flex-col justify-around items-center rounded-sm border-bgGreen group-hover:bg-bgGreen text-sm pl-7 pt-7 pr-7 pb-7 sm:h-full">
+            <div className="content flex flex-col items-center justify-around rounded-sm border border-bgGreen pl-7 pt-7 pr-7 pb-7 text-sm duration-200 group-hover:bg-bgGreen sm:h-full">
               <img
                 src={`/assets/services/${service.icon}.png`}
-                className="w-10 h-10 xsm:w-20 xsm:h-20 sm:w-14 sm:h-14 md:w-16 md:h-16 group-hover:hidden duration-200"
+                className="h-10 w-10 duration-200 group-hover:hidden xsm:h-20 xsm:w-20 sm:h-14 sm:w-14 md:h-16 md:w-16"
               />
               <img
                 src={`/assets/services/${service.revert_icon}.png`}
-                className="w-10 h-10 xsm:w-20 xsm:h-20 sm:w-14 sm:h-14 md:w-16 md:h-16 hidden group-hover:block duration-200"
+                className="hidden h-10 w-10 duration-200 group-hover:block xsm:h-20 xsm:w-20 sm:h-14 sm:w-14 md:h-16 md:w-16"
               />
-              <p className="text-bgGreen group-hover:text-[#adc6af] mt-4 font-bold text-lg xsm:text-2xl duration-200">
+              <p className="mt-4 text-lg font-bold text-bgGreen duration-200 group-hover:text-[#adc6af] xsm:text-2xl">
                 {service.name}
               </p>
             </div>

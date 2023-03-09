@@ -65,10 +65,10 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="bg-bgGreen min-h-screen h-auto flex flex-col">
+    <div className="flex h-auto min-h-screen flex-col bg-bgGreen">
       <NavBar />
-      <div className="min-h-full px-4 md:px-0 bg-bgGreen flex flex-col justify-center max-w-[400px] mx-auto md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
-        <h1 className="text-4xl font-bold text-secGreen my-2 text-center">
+      <div className="mx-auto flex min-h-full max-w-[400px] flex-col justify-center bg-bgGreen px-4 md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:px-0">
+        <h1 className="my-2 text-center text-4xl font-bold text-secGreen">
           Forgot your password?
         </h1>
         <p className="text-center text-gray-500">
@@ -76,28 +76,28 @@ const ResetPassword = () => {
         </p>
         <form
           onSubmit={handleResetPassword}
-          className="sign-in-form mt-10 w-full rounded-sm flex flex-col flex-start gap-3"
+          className="sign-in-form flex-start mt-10 flex w-full flex-col gap-3 rounded-sm"
         >
           <div className="form-field-auth h-[50px]">
             <input
               ref={inputRef}
               type="email"
-              className={`${inputClass} input-auth text-[#74bb8f] px-[7px] text-[17px]`}
+              className={`${inputClass} input-auth px-[7px] text-[17px] text-[#74bb8f]`}
               onChange={(e) => handleInputChange(e)}
               required
             />
-            <label className="absolute label-auth text-[17px] bg-bgGreen w-[64px]">
+            <label className="label-auth absolute w-[64px] bg-bgGreen text-[17px]">
               Email
             </label>
           </div>
           <button
             type="submit"
-            className="h-[50px] rounded-sm text-lg border-2 w-full py-3 bg-secGreen text-bgGreen border-secGreen flex justify-center items-center font-bold "
+            className="flex h-[50px] w-full items-center justify-center rounded-sm border-2 border-secGreen bg-secGreen py-3 text-lg font-bold text-bgGreen "
           >
             Reset
           </button>
         </form>
-        <p className="text-gray-500 text-md mt-3 text-left">
+        <p className="text-md mt-3 text-left text-gray-500">
           Remember your password?{" "}
           <Link to="/signup">
             <button className="underline">Sign In</button>

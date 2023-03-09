@@ -13,8 +13,8 @@ const Doctors = () => {
   const carouselRef = useRef();
 
   return (
-    <div className="px-4 mt-20">
-      <h2 className="text-center font-bold text-3xl text-blackGreen my-6 px-4">
+    <div className="mt-20 px-4">
+      <h2 className="my-6 px-4 text-center text-3xl font-bold text-blackGreen">
         Expert Veterinary Care You Can Trust
       </h2>
       <div>
@@ -22,17 +22,17 @@ const Doctors = () => {
           effect={"cards"}
           grabCursor={true}
           modules={[EffectCards]}
-          className="px-10 xsm:px-16 w-full sm:w-4/6 sm:max-w-4/6 md:max-w-[450px] md:px-16 ml:hidden"
+          className="sm:max-w-4/6 w-full px-10 xsm:px-16 sm:w-4/6 md:max-w-[450px] md:px-16 ml:hidden"
         >
           {doctors.map((doctor) => (
             <div className="relative">
               <SwiperSlide key={Math.random()} className="rounded-sm">
                 <img src={doctor.image} alt="doctor" className="doctor" />
                 <Link to={`doctors/${doctor.link}`} className="lg:hidden">
-                  <div className="absolute bottom-4 right-0 left-1/2 -ml-[40%] w-[80%] h-16 opacity-70 bg-bgGreen border-2 border-secGreen ">
-                    <div className="flex flex-col items-center justify-center h-full">
+                  <div className="absolute bottom-4 right-0 left-1/2 -ml-[40%] h-16 w-[80%] border-2 border-secGreen bg-bgGreen opacity-70 ">
+                    <div className="flex h-full flex-col items-center justify-center">
                       <div className="name font-bold">{doctor.name}</div>
-                      <div>Learn More &#8618;</div>
+                      <p className="underline">Learn More</p>
                     </div>
                   </div>
                 </Link>
@@ -40,29 +40,29 @@ const Doctors = () => {
             </div>
           ))}
         </Swiper>
-        <div className="max-w-[750px] mx-auto relative hidden ml:block">
+        <div className="relative mx-auto hidden max-w-[750px] ml:block">
           <Carousel
             autoplay
             effect="fade"
-            className="w-[750px] h-[500px]"
+            className="h-[500px] w-[750px]"
             ref={carouselRef}
           >
             {doctors.map((doctor) => {
               return (
-                <div className="h-[500px] w-[375px] bg-secGreen bg-opacity-10 rounded-r-sm">
+                <div className="h-[500px] w-[375px] rounded-r-sm bg-secGreen bg-opacity-10">
                   <div
-                    className="flex justify-start absolute top-0 h-[500px]"
+                    className="absolute top-0 flex h-[500px] justify-start"
                     key={doctor.id}
                   >
                     <img
                       src={doctor.image}
                       className="h-[500px] w-[375px] rounded-l-sm"
                     />
-                    <div className="w-[375px] px-6 py-10 flex flex-col justify-start items-center">
+                    <div className="flex w-[375px] flex-col items-center justify-start px-6 py-10">
                       <p className="text-2xl font-bold text-blackGreen">
                         {doctor.name}
                       </p>
-                      <div className="w-36 h-[3px] rounded-sm bg-secGreen my-2" />
+                      <div className="my-2 h-[3px] w-36 rounded-sm bg-secGreen" />
                       <p className=" text-md">
                         Experience:{" "}
                         <span className="font-bold">{doctor.experience}</span>{" "}
@@ -88,7 +88,7 @@ const Doctors = () => {
               onClick={() => {
                 carouselRef.current.prev();
               }}
-              className="text-5xl h-16 w-16"
+              className="h-16 w-16 text-5xl"
             >
               {"❰"}
             </button>
@@ -97,7 +97,7 @@ const Doctors = () => {
               onClick={() => {
                 carouselRef.current.next();
               }}
-              className="text-5xl h-16 w-16"
+              className="h-16 w-16 text-5xl"
             >
               {"❱"}
             </button>
@@ -110,7 +110,7 @@ const Doctors = () => {
           viewBox="0 0 200 200"
           fill="none"
           stroke="#081800"
-          className="stroke-2 w-20 h-20"
+          className="h-20 w-20 stroke-2"
         >
           <path
             className="hand-x"

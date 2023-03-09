@@ -24,20 +24,20 @@ const Appointments = () => {
   }, []);
 
   return (
-    <div className="bg-bgGreen min-h-screen">
+    <div className="min-h-screen bg-bgGreen">
       <NavBar />
-      <h2 className="mb-10 text-5xl md:text-7xl xl:text-8xl text-center font-bold font-heading tracking-px-n leading-none text-secGreen">
+      <h2 className="font-heading tracking-px-n mb-10 text-center text-5xl font-bold leading-none text-secGreen md:text-7xl xl:text-8xl">
         Appointments
       </h2>
       <div>
-        <ul className="w-full px-5 h-auto flex flex-col gap-5 max-w-[500px] mx-auto">
+        <ul className="mx-auto flex h-auto w-full max-w-[500px] flex-col gap-5 px-5">
           {appointments.map((appoint) => {
             return (
-              <li className="w-full border-2 border-gray-300 shadow-lg rounded-md bg-[#f2ffe2de]">
-                <div className="h-32 text-md font-bold w-full flex justify-center text-blackGreen items-center gap-5 flex-col">
+              <li className="w-full rounded-md border-2 border-gray-300 bg-[#f2ffe2de] shadow-lg">
+                <div className="text-md flex h-32 w-full flex-col items-center justify-center gap-5 font-bold text-blackGreen">
                   {appoint.name} requested an appointment for: {appoint.date}
                   <Link to={`/appointments/${appoint.id}`}>
-                    <button className="px-4 py-2 rounded-md underline">
+                    <button className="rounded-md px-4 py-2 underline">
                       See detailed information {"->"}
                     </button>
                   </Link>

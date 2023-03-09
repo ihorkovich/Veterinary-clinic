@@ -4,26 +4,26 @@ import { Link } from "react-router-dom";
 
 const SomeServices = () => {
   return (
-    <div className="flex flex-col bg-[#adc6af] items-center mt-20">
-      <h2 className=" font-bold text-3xl text-bgGreen text-center my-8">
+    <div className="mt-20 flex flex-col items-center bg-[#adc6af]">
+      <h2 className=" my-8 text-center text-3xl font-bold text-bgGreen">
         Expert Veterinary Services for Your Pet
       </h2>
-      <div className="grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:grid-rows-2 lg:grid-cols-4 lg:grid-rows-1 max-w-[1280px]">
+      <div className="grid max-w-[1280px] grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:grid-rows-2 lg:grid-cols-4 lg:grid-rows-1">
         {services.map((service) => (
           <Link to={`services/${service.name.toLowerCase()}`} key={service.id}>
-            <div className="border rounded-sm border-bgGreen text-sm pl-7 pt-7 pr-7 pb-7 sm:h-full">
-              <img src={service.icon} className="w-10 h-10" />
-              <p className="text-bgGreen mt-4 font-bold text-lg">
+            <div className="rounded-sm border border-bgGreen pl-7 pt-7 pr-7 pb-7 text-sm sm:h-full">
+              <img src={service.icon} className="h-10 w-10" />
+              <p className="mt-4 text-lg font-bold text-bgGreen">
                 {service.name}
               </p>
-              <p className="text-bgGreen mt-3">{service.description}</p>
+              <p className="mt-3 text-bgGreen">{service.description}</p>
             </div>
           </Link>
         ))}
       </div>
-      <div className="flex justify-center z-10 my-6">
+      <div className="z-10 my-6 flex justify-center">
         <Link to="services">
-          <button className="services-button text-bgGreen bg-[#adc6af] border border-bgGreen w-[100px] h-[45px]">
+          <button className="services-button h-[45px] w-[100px] border border-bgGreen bg-[#adc6af] text-bgGreen">
             Learn more
           </button>
         </Link>

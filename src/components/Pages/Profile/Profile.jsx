@@ -74,13 +74,13 @@ const Profile = () => {
   return (
     <div className="min-h-screen bg-bgGreen">
       <NavBar />
-      <h2 className="mb-5 text-3xl md:text-4xl xl:text-5xl text-center font-bold font-heading tracking-px-n leading-none text-secGreen">
+      <h2 className="font-heading tracking-px-n mb-5 text-center text-3xl font-bold leading-none text-secGreen md:text-4xl xl:text-5xl">
         Profile
       </h2>
-      <div className="flex flex-col justify-center items-start md:flex-row px-4 gap-4 max-w-[1280px] mx-auto">
+      <div className="mx-auto flex max-w-[1280px] flex-col items-start justify-center gap-4 px-4 md:flex-row">
         <div className="w-full md:w-1/2">
           <img
-            className="rounded-md w-full opacity-95"
+            className="w-full rounded-md opacity-95"
             src="/assets/profile/ducks.jpg"
           />
         </div>
@@ -122,11 +122,11 @@ const Profile = () => {
         )}
       </div>
       {user.role === "user" && userAppointment !== undefined ? (
-        <div className="mt-10 text-blackGreen mx-auto">
-          <h2 className="mb-5 text-3xl md:text-4xl xl:text-5xl text-center font-bold font-heading tracking-px-n leading-none text-secGreen">
+        <div className="mx-auto mt-10 text-blackGreen">
+          <h2 className="font-heading tracking-px-n mb-5 text-center text-3xl font-bold leading-none text-secGreen md:text-4xl xl:text-5xl">
             Appointment
           </h2>
-          <div className="p-4 text-lg w-full border-2 max-w-[400px] mx-auto border-secGreen flex flex-col justify-center items-center gap-3">
+          <div className="mx-auto flex w-full max-w-[400px] flex-col items-center justify-center gap-3 border-2 border-secGreen p-4 text-lg">
             <p>
               <span className="font-bold">To: </span>
               {userAppointment.doctor
@@ -140,7 +140,7 @@ const Profile = () => {
               {userAppointment.date ? userAppointment.date : ""}
             </p>
             <button
-              className="p-2 font-bold text-secGreen hover:text-bgGreen hover:bg-secGreen duration-200 rounded-sm"
+              className="rounded-sm p-2 font-bold text-secGreen duration-200 hover:bg-secGreen hover:text-bgGreen"
               onClick={cancelAppointment}
             >
               Cancel appointment
@@ -150,9 +150,9 @@ const Profile = () => {
       ) : (
         ""
       )}
-      <div className="w-full mt-10 max-w-[1280px] px-4 flex justify-center mx-auto pb-5">
+      <div className="mx-auto mt-10 flex w-full max-w-[1280px] justify-center px-4 pb-5">
         <button
-          className="rounded-sm text-secGreen border-2 border-secGreen font-bold hover:text-bgGreen hover:bg-secGreen duration-200 px-6 py-3"
+          className="rounded-sm border-2 border-secGreen px-6 py-3 font-bold text-secGreen duration-200 hover:bg-secGreen hover:text-bgGreen"
           onClick={userSignOut}
         >
           Sign Out

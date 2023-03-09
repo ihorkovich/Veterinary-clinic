@@ -130,30 +130,30 @@ const RequestAnAppointment = () => {
   };
 
   return (
-    <div className="bg-bgGreen min-h-screen">
+    <div className="min-h-screen bg-bgGreen">
       <NavBar />
       <div className="flex flex-col items-center gap-5">
         {userL.id === null ? (
-          <div className="flex flex-col justify-center items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <p className="text-4xl font-bold text-secGreen text-center max-w-[590px]">
+          <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center">
+            <p className="max-w-[590px] text-center text-4xl font-bold text-secGreen">
               Please register to be able to make an appointment to a doctor
             </p>
             <div className="mt-8">
               <Link to="/signup">
-                <button className="py-3 px-6 bg-secGreen rounded-sm text-bgGreen font-bold">
+                <button className="rounded-sm bg-secGreen py-3 px-6 font-bold text-bgGreen">
                   Sign Up
                 </button>
               </Link>
             </div>
           </div>
         ) : user.made === true ? (
-          <div className="flex flex-col justify-center items-center">
-            <p className="text-4xl font-bold text-secGreen text-center max-w-[590px]">
+          <div className="flex flex-col items-center justify-center">
+            <p className="max-w-[590px] text-center text-4xl font-bold text-secGreen">
               You have already made an appointment
             </p>
             <div className="mt-8">
               <Link to="/">
-                <button className="py-3 px-6 bg-secGreen rounded-sm text-bgGreen font-bold">
+                <button className="rounded-sm bg-secGreen py-3 px-6 font-bold text-bgGreen">
                   Go to main
                 </button>
               </Link>
@@ -161,12 +161,12 @@ const RequestAnAppointment = () => {
           </div>
         ) : (
           <div className="pb-[50px]">
-            <p className="text-center text-3xl text-secGreen font-bold px-4">
+            <p className="px-4 text-center text-3xl font-bold text-secGreen">
               Request An Appointment
             </p>
             <form
               onSubmit={handleSubmit(handleFormSubmit)}
-              className="w-full px-4 flex flex-col gap-3 mt-8 max-w-[400px]"
+              className="mt-8 flex w-full max-w-[400px] flex-col gap-3 px-4"
             >
               <div className="form-field-auth h-[50px]">
                 <input
@@ -175,14 +175,14 @@ const RequestAnAppointment = () => {
                   {...register("name")}
                   onChange={handleInputChange}
                   defaultValue={appointmentData.name}
-                  className={`${inputClass} input-auth text-[#74bb8f] px-[7px] text-[17px]`}
+                  className={`${inputClass} input-auth px-[7px] text-[17px] text-[#74bb8f]`}
                 />
-                <label className="absolute label-auth text-[17px] w-[74px] bg-bgGreen">
+                <label className="label-auth absolute w-[74px] bg-bgGreen text-[17px]">
                   Name
                 </label>
               </div>
               {errors.name && (
-                <p className="text-red-500 text-[12px] -mt-3">
+                <p className="-mt-3 text-[12px] text-red-500">
                   {errors.name.message}
                 </p>
               )}
@@ -193,14 +193,14 @@ const RequestAnAppointment = () => {
                   {...register("surname")}
                   onChange={handleInputChange}
                   defaultValue={appointmentData.surname}
-                  className={`${inputClass} input-auth text-[#74bb8f] px-[7px] text-[17px]`}
+                  className={`${inputClass} input-auth px-[7px] text-[17px] text-[#74bb8f]`}
                 />
-                <label className="absolute label-auth text-[17px] w-[93px] bg-bgGreen">
+                <label className="label-auth absolute w-[93px] bg-bgGreen text-[17px]">
                   Surname
                 </label>
               </div>
               {errors.surname && (
-                <p className="text-red-500 text-[12px] -mt-3">
+                <p className="-mt-3 text-[12px] text-red-500">
                   {errors.surname.message}
                 </p>
               )}
@@ -211,14 +211,14 @@ const RequestAnAppointment = () => {
                   {...register("email")}
                   onChange={handleInputChange}
                   defaultValue={appointmentData.email}
-                  className={`${inputClass} input-auth text-[#74bb8f] px-[7px] text-[17px]`}
+                  className={`${inputClass} input-auth px-[7px] text-[17px] text-[#74bb8f]`}
                 />
-                <label className="absolute label-auth text-[17px] w-[68px] bg-bgGreen">
+                <label className="label-auth absolute w-[68px] bg-bgGreen text-[17px]">
                   Email
                 </label>
               </div>
               {errors.email && (
-                <p className="text-red-500 text-[12px] -mt-3">
+                <p className="-mt-3 text-[12px] text-red-500">
                   {errors.email.message}
                 </p>
               )}
@@ -230,14 +230,14 @@ const RequestAnAppointment = () => {
                   {...register("pet_name")}
                   onChange={handleInputChange}
                   defaultValue={appointmentData.pet_name}
-                  className={`${inputClass} input-auth text-[#74bb8f] px-[7px] text-[17px]`}
+                  className={`${inputClass} input-auth px-[7px] text-[17px] text-[#74bb8f]`}
                 />
-                <label className="absolute label-auth text-[17px] w-[115px] bg-bgGreen">
+                <label className="label-auth absolute w-[115px] bg-bgGreen text-[17px]">
                   Pet's Name
                 </label>
               </div>
               {errors.pet_name && (
-                <p className="text-red-500 text-[12px] -mt-3">
+                <p className="-mt-3 text-[12px] text-red-500">
                   {errors.pet_name.message}
                 </p>
               )}
@@ -248,14 +248,14 @@ const RequestAnAppointment = () => {
                   {...register("pet_species")}
                   onChange={handleInputChange}
                   defaultValue={appointmentData.pet_species}
-                  className={`${inputClass} input-auth text-[#74bb8f] px-[7px] text-[17px]`}
+                  className={`${inputClass} input-auth px-[7px] text-[17px] text-[#74bb8f]`}
                 />
-                <label className="absolute label-auth text-[17px] w-[118px] bg-bgGreen">
+                <label className="label-auth absolute w-[118px] bg-bgGreen text-[17px]">
                   Pet Species
                 </label>
               </div>
               {errors.pet_species && (
-                <p className="text-red-500 text-[12px] -mt-3">
+                <p className="-mt-3 text-[12px] text-red-500">
                   {errors.pet_species.message}
                 </p>
               )}
@@ -266,7 +266,7 @@ const RequestAnAppointment = () => {
                   {...register("service")}
                   onChange={handleInputChange}
                   defaultValue={appointmentData.service}
-                  className={`${inputClass} input-auth text-[#74bb8f] px-[7px] text-[17px] bg-bgGreen`}
+                  className={`${inputClass} input-auth bg-bgGreen px-[7px] text-[17px] text-[#74bb8f]`}
                 >
                   <option value="">Service</option>
                   <option value="surgery">surgery</option>
@@ -279,7 +279,7 @@ const RequestAnAppointment = () => {
                 </select>
               </div>
               {errors.service && (
-                <p className="text-red-500 text-[12px] -mt-3">
+                <p className="-mt-3 text-[12px] text-red-500">
                   {errors.service.message}
                 </p>
               )}
@@ -290,7 +290,7 @@ const RequestAnAppointment = () => {
                   {...register("toWhichDoctor")}
                   onChange={handleInputChange}
                   defaultValue={appointmentData.toWhichDoctor}
-                  className={`${inputClass} input-auth text-[#74bb8f] px-[7px] text-[17px] bg-bgGreen`}
+                  className={`${inputClass} input-auth bg-bgGreen px-[7px] text-[17px] text-[#74bb8f]`}
                 >
                   <option value="" className="bg-bgGreen">
                     Doctor
@@ -303,7 +303,7 @@ const RequestAnAppointment = () => {
                 </select>
               </div>
               {errors.toWhichDoctor && (
-                <p className="text-red-500 text-[12px] -mt-3">
+                <p className="-mt-3 text-[12px] text-red-500">
                   {errors.toWhichDoctor.message}
                 </p>
               )}
@@ -314,11 +314,11 @@ const RequestAnAppointment = () => {
                   min={new Date().toISOString().split("T")[0]}
                   onChange={handleInputChange}
                   defaultValue={appointmentData.date}
-                  className={`${inputClass} input-auth text-[#74bb8f] px-[7px] text-[17px] bg-bgGreen`}
+                  className={`${inputClass} input-auth bg-bgGreen px-[7px] text-[17px] text-[#74bb8f]`}
                 />
               </div>
               {errors.date && (
-                <p className="text-red-500 text-[12px] -mt-3">
+                <p className="-mt-3 text-[12px] text-red-500">
                   {errors.date.message}
                 </p>
               )}
@@ -328,16 +328,16 @@ const RequestAnAppointment = () => {
                   name="comment"
                   value={appointmentData.comment}
                   onChange={handleInputChange}
-                  className={`${inputClass} input-auth text-[#74bb8f] p-[10px] text-[17px] bg-bgGreen`}
+                  className={`${inputClass} input-auth bg-bgGreen p-[10px] text-[17px] text-[#74bb8f]`}
                   maxLength={50}
                 />
-                <label className="absolute label-auth text-[17px] w-[183px] bg-bgGreen">
+                <label className="label-auth absolute w-[183px] bg-bgGreen text-[17px]">
                   Additional comment
                 </label>
               </div>
               <button
                 type="submit"
-                className=" text-lg mt-8 rounded-sm  w-full py-3 bg-secGreen text-bgGreen flex justify-center items-center font-bold "
+                className=" mt-8 flex w-full  items-center justify-center rounded-sm bg-secGreen py-3 text-lg font-bold text-bgGreen "
               >
                 Submit
               </button>

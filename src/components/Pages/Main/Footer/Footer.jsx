@@ -98,13 +98,13 @@ const Footer = () => {
   };
 
   return (
-    <div className="footer bg-bgGreen mt-20">
+    <div className="footer mt-20 bg-bgGreen">
       <div className="px-4">
-        <h2 className="text-center font-bold text-[#74bb8f] text-[2rem] w-5/6 leading-[2rem] sm:text-4xl md:text-5xl lg:text-6xl lg:w-[900px] mx-auto lg:leading-[4rem]">
+        <h2 className="mx-auto w-5/6 text-center text-[2rem] font-bold leading-[2rem] text-[#74bb8f] sm:text-4xl md:text-5xl lg:w-[900px] lg:text-6xl lg:leading-[4rem]">
           STILL HAVE QUESTIONS? THEN THERE IS AN ANSWER!
         </h2>
         <form
-          className="flex flex-col justify-around items-start gap-7 mt-10 md:mt-10 lg:mt-16 max-w-[1280px] mx-auto"
+          className="mx-auto mt-10 flex max-w-[1280px] flex-col items-start justify-around gap-7 md:mt-10 lg:mt-16"
           ref={form}
           onSubmit={handleSubmit(sendEmail)}
         >
@@ -112,29 +112,29 @@ const Footer = () => {
             <input
               type="text"
               {...register("subject_of_address")}
-              className={`${inputClass} input text-[#74bb8f] px-[7px] text-[17px]`}
+              className={`${inputClass} input px-[7px] text-[17px] text-[#74bb8f]`}
               onChange={handleInputChange}
             />
             <label className="label text-[17px]">Subject of address</label>
           </div>
           {errors.subject_of_address && (
-            <p className="text-red-500 text-[12px] -mt-6">
+            <p className="-mt-6 text-[12px] text-red-500">
               {errors.subject_of_address.message}
             </p>
           )}
-          <div className="w-full flex flex-col lg:flex-row gap-7">
+          <div className="flex w-full flex-col gap-7 lg:flex-row">
             <div className="lg:w-1/2">
               <div className="form-field border-b-2 border-secGreen">
                 <input
                   type="text"
                   {...register("user_name")}
-                  className={`${inputClass} input text-[#74bb8f] px-[7px] text-[17px]`}
+                  className={`${inputClass} input px-[7px] text-[17px] text-[#74bb8f]`}
                   onChange={handleInputChange}
                 />
                 <label className="label text-[17px]">Your name</label>
               </div>
               {errors.user_name && (
-                <p className="text-red-500 text-[12px] mt-1">
+                <p className="mt-1 text-[12px] text-red-500">
                   {errors.user_name.message}
                 </p>
               )}
@@ -144,13 +144,13 @@ const Footer = () => {
                 <input
                   type="email"
                   {...register("user_email")}
-                  className={`${inputClass} input text-[#74bb8f] px-[7px] text-[17px]`}
+                  className={`${inputClass} input px-[7px] text-[17px] text-[#74bb8f]`}
                   onChange={handleInputChange}
                 />
                 <label className="label text-[17px]">Email</label>
               </div>
               {errors.user_email && (
-                <p className="text-red-500 text-[12px] mt-1">
+                <p className="mt-1 text-[12px] text-red-500">
                   {errors.user_email.message}
                 </p>
               )}
@@ -160,20 +160,20 @@ const Footer = () => {
             <input
               type="text"
               {...register("message")}
-              className={`${inputClass} input text-[#74bb8f] px-[7px] text-[17px]`}
+              className={`${inputClass} input px-[7px] text-[17px] text-[#74bb8f]`}
               onChange={handleInputChange}
             />
             <label className="label text-[17px]">Message</label>
           </div>
           {errors.message && (
-            <p className="text-red-500 text-[12px] -mt-6">
+            <p className="-mt-6 text-[12px] text-red-500">
               {errors.message.message}
             </p>
           )}
           <div className="z-0 mt-3">
             <button
               type="submit"
-              className="footer-button bg-bgGreen border border-[#74bb8f] text-[#74bb8f] w-[100px] h-[45px]"
+              className="footer-button h-[45px] w-[100px] border border-[#74bb8f] bg-bgGreen text-[#74bb8f]"
               value="Send"
             >
               Send
@@ -181,38 +181,38 @@ const Footer = () => {
           </div>
         </form>
       </div>
-      <div className="flex justify-center items-center gap-5 mt-14 mb-2">
+      <div className="mt-14 mb-2 flex items-center justify-center gap-5">
         <a href="https://uahelp.monobank.ua/" target={"_blank"}>
           <img
             src="/assets/contact-links-img/github.svg"
             alt="github"
-            className="w-7 aspect-square hover:opacity-80 duration-200"
+            className="aspect-square w-7 duration-200 hover:opacity-80"
           />
         </a>
         <a href="https://uahelp.monobank.ua/" target={"_blank"}>
           <img
             src="/assets/contact-links-img/linkedin.svg"
             alt="linkedin"
-            className="w-7 aspect-square hover:opacity-80 duration-200"
+            className="aspect-square w-7 duration-200 hover:opacity-80"
           />
         </a>
         <a href="https://uahelp.monobank.ua/" target={"_blank"}>
           <img
             src="/assets/contact-links-img/twitter.svg"
             alt="twitter"
-            className="w-7 aspect-square hover:opacity-80 duration-200"
+            className="aspect-square w-7 duration-200 hover:opacity-80"
           />
         </a>
         <a href="https://uahelp.monobank.ua/" target={"_blank"}>
           <img
             src="/assets/contact-links-img/money.svg"
             alt="money"
-            className="w-7 aspect-square hover:opacity-80 duration-200"
+            className="aspect-square w-7 duration-200 hover:opacity-80"
           />
         </a>
       </div>
-      <div className="text-center py-2 text-[12px]">
-        <p className="text-[#74bb8f] leading-[14px]">
+      <div className="py-2 text-center text-[12px]">
+        <p className="leading-[14px] text-[#74bb8f]">
           Copyright © {new Date().getFullYear()} Clerks Corp.
           <br /> All rights reserved.
         </p>
