@@ -4,7 +4,7 @@ Responsive, modern and user-friendly vet clinic web application\
 You can visit the site by following this link - [clerks](https://clerks.vercel.app/)
 
 ## Hero Screenshot
-![Hero Screenshot](https://user-images.githubusercontent.com/103593831/224328995-64ade1cb-23e0-4498-b4ca-ae29eda52598.png
+![Hero Screenshot](https://user-images.githubusercontent.com/103593831/224328995-64ade1cb-23e0-4498-b4ca-ae29eda52598.png)
 
 ## Roles
 - Customer
@@ -26,9 +26,14 @@ You can visit the site by following this link - [clerks](https://clerks.vercel.a
 
 
 ## Tech Stack
-**Client:** React, Redux, TailwindCSS, SASS
+**Client:** ![react](https://user-images.githubusercontent.com/103593831/224331430-91552bfd-cfba-4a2c-843b-79564f8f7299.svg)
+ ![redux](https://user-images.githubusercontent.com/103593831/224331476-5148f370-40c6-42ed-8c4b-92a5e968dac8.svg)
+ ![tailwindcss-icon](https://user-images.githubusercontent.com/103593831/224331573-e54d76e7-e726-406b-9b9c-52a7fea4fe74.svg)
+ ![sass](https://user-images.githubusercontent.com/103593831/224331532-9309667b-dde6-460b-a269-71a59307d7f2.svg)
 
-**Server:** Firebase
+
+**Server:** ![firebase](https://user-images.githubusercontent.com/103593831/224331691-951d8860-4103-40f7-9beb-f890c66fd19f.svg)
+
 
 ## Additional libraries user
 - EmailJS
@@ -37,8 +42,3 @@ You can visit the site by following this link - [clerks](https://clerks.vercel.a
 - react-intersection-observer
 - redux-persist
 - swiper
-
-## Author
-
-- Gitub: [ihorkovich](https://www.github.com/octokatherine)
-- LinkedIn: [ihorkovich](https://www.linkedin.com/in/ihor-makovych-768177249/)
