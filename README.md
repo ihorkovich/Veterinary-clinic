@@ -26,13 +26,13 @@ You can visit the site by following this link - [clerks](https://clerks.vercel.a
 
 
 ## Tech Stack
-**Client:** ![react](https://user-images.githubusercontent.com/103593831/224331430-91552bfd-cfba-4a2c-843b-79564f8f7299.svg)
- ![redux](https://user-images.githubusercontent.com/103593831/224331476-5148f370-40c6-42ed-8c4b-92a5e968dac8.svg)
- ![tailwindcss-icon](https://user-images.githubusercontent.com/103593831/224331573-e54d76e7-e726-406b-9b9c-52a7fea4fe74.svg)
- ![sass](https://user-images.githubusercontent.com/103593831/224331532-9309667b-dde6-460b-a269-71a59307d7f2.svg)
+**Client:** ![react](https://user-images.githubusercontent.com/103593831/224331430-91552bfd-cfba-4a2c-843b-79564f8f7299.svg){: width="32px" height="32px"}
+ ![redux](https://user-images.githubusercontent.com/103593831/224331476-5148f370-40c6-42ed-8c4b-92a5e968dac8.svg){: width="32px" height="32px"}
+ ![tailwindcss-icon](https://user-images.githubusercontent.com/103593831/224331573-e54d76e7-e726-406b-9b9c-52a7fea4fe74.svg){: width="32px" height="32px"}
+ ![sass](https://user-images.githubusercontent.com/103593831/224331532-9309667b-dde6-460b-a269-71a59307d7f2.svg){: width="32px" height="32px"}
 
 
-**Server:** ![firebase](https://user-images.githubusercontent.com/103593831/224331691-951d8860-4103-40f7-9beb-f890c66fd19f.svg)
+**Server:** ![firebase](https://user-images.githubusercontent.com/103593831/224331691-951d8860-4103-40f7-9beb-f890c66fd19f.svg){: width="32px" height="32px"}
 
 
 ## Additional libraries user
