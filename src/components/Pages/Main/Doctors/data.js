@@ -15,7 +15,7 @@ export const doctors = [
     experience: 10,
     image: "https://i.ibb.co/SxzhRMW/william.jpg",
     description:
-      "William is a remarkable employee at a vet clinic, having been working for 8 years. His exemplary work ethic and unwavering commitment to providing top-quality care to animals make him an invaluable member of the veterinary team. His love for animals is reflected in his...",
+      "William is a remarkable employee at a vet clinic, having been working for 8.5 years. His exemplary work ethic and unwavering commitment to providing top-quality care to animals make him an invaluable member of the veterinary team. His love for animals is reflected in his...",
   },
   {
     id: 3,
